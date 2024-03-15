@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {Link} from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
@@ -5,6 +6,17 @@ import { faList } from '@fortawesome/free-solid-svg-icons'
 import "./Nav.css"
 
 export default function Nav(){
+
+    const [hotDishes , setHotDishes] = useState(false)
+
+    const hotDishesCategoryOpen = () => {
+        setHotDishes(true)
+    }
+
+    const hotDishesCategoryClose = () => {
+        setHotDishes(false)
+    }
+
     return(
         <nav className='nav'>
             <div className="logo">
@@ -14,12 +26,34 @@ export default function Nav(){
             </div>
             <div className="conteyner-categories-list-user">
                 <div className="categories">
-                    <Link to = "/">Hot dishes</Link>
-                    <Link to = "/">Fresh rolls</Link>
-                    <Link to = "/">Salads</Link>
-                    <Link to = "/">Sushi</Link>
-                    <Link to = "/">Burgers</Link>
-                    <Link to = "/">Desserts</Link>
+                    <div className="hotdishes" onMouseOver={()=>{hotDishesCategoryOpen()}} onMouseOut={()=>{hotDishesCategoryClose()}}>
+                        <div>
+                            <Link to = "/hotdishes">Hot dishes</Link>
+                        </div>
+                        {hotDishes && 
+                            <div className="categoriHotDishes">
+                                <div><Link to = "/categoriHotDishes">Soups</Link></div>
+                                <div><Link to = "/categoriHotDishes">Seafood</Link></div>
+                                <div><Link to = "/categoriHotDishes">With chicken</Link></div>
+                                <div><Link to = "/categoriHotDishes">With veal</Link></div>
+                            </div>
+                        }
+                    </div>
+                    <div className="freshrolls">
+                        <Link to = "/freshrolls">Fresh rolls</Link>
+                    </div>
+                    <div className="slads">
+                        <Link to = "/slads">Salads</Link>
+                    </div>
+                    <div className="sushi">
+                        <Link to = "/sushi">Sushi</Link>
+                    </div>
+                    <div className="burgers">
+                        <Link to = "/burgers">Burgers</Link>
+                    </div>
+                    <div className="desserts">
+                        <Link to = "/desserts">Desserts</Link>
+                    </div>
                 </div>
                 <div class="cadegori-list">
                     <Link to = "/">

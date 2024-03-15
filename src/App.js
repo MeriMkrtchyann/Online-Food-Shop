@@ -1,4 +1,5 @@
 import HomePage from "./pages/HomePage";
+import HotDishes from "./pages/HotDishes";
 import { Route, Routes } from 'react-router-dom'
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
       </Routes>
       <Routes>
           <Route path="/" element={<HomePage/>} />
+          <Route path="/hotdishes" element={<HotDishes/>} />
           {/* <Route path="/rolls" element={ } />
           <Route path="/salads" element={ } />
           <Route path="/sushi" element={ } />
