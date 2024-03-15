@@ -8,15 +8,13 @@ import "./Nav.css"
 export default function Nav(){
 
     const [hotDishes , setHotDishes] = useState(false)
+    const [sushies , setSushes] = useState(false)
 
-    const hotDishesCategoryOpen = () => {
-        setHotDishes(true)
-    }
-
-    const hotDishesCategoryClose = () => {
-        setHotDishes(false)
-    }
-
+    const hotDishesCategoryOpen = () => setHotDishes(true)
+    const hotDishesCategoryClose = () => setHotDishes(false)
+    const setsCategoryOpen = () => setSushes(true)
+    const setsCategoryClose = () => setSushes(false)
+    
     return(
         <nav className='nav'>
             <div className="logo">
@@ -26,7 +24,7 @@ export default function Nav(){
             </div>
             <div className="conteyner-categories-list-user">
                 <div className="categories">
-                    <div className="hotdishes" onMouseOver={()=>{hotDishesCategoryOpen()}} onMouseOut={()=>{hotDishesCategoryClose()}}>
+                    <div className="hotdishes" onMouseOver={hotDishesCategoryOpen} onMouseOut={hotDishesCategoryClose}>
                         <div>
                             <Link to = "/hotdishes">Hot dishes</Link>
                         </div>
@@ -45,8 +43,16 @@ export default function Nav(){
                     <div className="slads">
                         <Link to = "/slads">Salads</Link>
                     </div>
-                    <div className="sushi">
-                        <Link to = "/sushi">Sushi</Link>
+                    <div className="sushi" onMouseOver={setsCategoryOpen} onMouseOut={setsCategoryClose}>
+                        <div><Link to = "/sushi">Sushi</Link></div>
+                        {sushies && 
+                            <div className="categoriHotDishes">
+                                <div><Link to = "/categoriSushi">Rolls</Link></div>
+                                <div><Link to = "/categoriSushi">Maki</Link></div>
+                                <div><Link to = "/categoriSushi">Hot Rolls</Link></div>
+                                <div><Link to = "/categoriSushi">Sets</Link></div>
+                            </div>
+                        }
                     </div>
                     <div className="burgers">
                         <Link to = "/burgers">Burgers</Link>
@@ -55,13 +61,13 @@ export default function Nav(){
                         <Link to = "/desserts">Desserts</Link>
                     </div>
                 </div>
-                <div class="cadegori-list">
+                <div className="cadegori-list">
                     <Link to = "/">
                         <FontAwesomeIcon icon={faList} className="fa-light fa-List" />
                     </Link>
                 </div>
                 <div className='user'>
-                    <Link to = "/">
+                    <Link to = "/login">
                         <FontAwesomeIcon icon={faUser} className="fa-light fa-user" />
                     </Link>
                 </div>

@@ -38,7 +38,8 @@
 .categories a {
     text-decoration: none; 
     color: white; 
-    margin-left:45px;
+    margin-left:20px;
+    margin-right:20px;
 }
 
 .user {
@@ -56,13 +57,16 @@
     display:none;
 }
 
-.categoriHotDishes{
-    position:absolute;
-    display:block;
+.categoriHotDishes a{
+    color:white;
 }
 
-.categoriHotDishes a{
-    color:red;
+.categoriHotDishes{
+    font-size:17px;
+    position: absolute;
+    display: block;
+    background: black;
+    padding:10px;
 }
 
 @media screen and (max-width: 820px){
