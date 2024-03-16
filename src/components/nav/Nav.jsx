@@ -10,10 +10,8 @@ export default function Nav(){
     const [hotDishes , setHotDishes] = useState(false)
     const [sushies , setSushes] = useState(false)
 
-    const hotDishesCategoryOpen = () => setHotDishes(true)
-    const hotDishesCategoryClose = () => setHotDishes(false)
-    const setsCategoryOpen = () => setSushes(true)
-    const setsCategoryClose = () => setSushes(false)
+    const hotDishesCategoryOpenAndClose = (hotDishes) => setHotDishes((value)=> !value)
+    const sushiCategoryOpenAndClose = (sushies) => setSushes((value)=> !value)
     
     return(
         <nav className='nav'>
@@ -24,7 +22,7 @@ export default function Nav(){
             </div>
             <div className="conteyner-categories-list-user">
                 <div className="categories">
-                    <div className="hotdishes" onMouseOver={hotDishesCategoryOpen} onMouseOut={hotDishesCategoryClose}>
+                    <div className="hotdishes" onMouseOver={hotDishesCategoryOpenAndClose} onMouseOut={hotDishesCategoryOpenAndClose}>
                         <div>
                             <Link to = "/hotdishes">Hot dishes</Link>
                         </div>
@@ -43,7 +41,7 @@ export default function Nav(){
                     <div className="slads">
                         <Link to = "/slads">Salads</Link>
                     </div>
-                    <div className="sushi" onMouseOver={setsCategoryOpen} onMouseOut={setsCategoryClose}>
+                    <div className="sushi" onMouseOver={sushiCategoryOpenAndClose} onMouseOut={sushiCategoryOpenAndClose}>
                         <div><Link to = "/sushi">Sushi</Link></div>
                         {sushies && 
                             <div className="categoriHotDishes">
