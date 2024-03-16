@@ -1,4 +1,5 @@
 import * as React from 'react';
+import GoHomeIcon from '../../components/icons/GoHomeIcon';
 import {Link} from "react-router-dom"
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -27,13 +28,13 @@ export default function LoginPage() {
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Grid container component="main" className="barev" 
+      <Grid container component="main" className="loginPage" 
         sx={{ 
             height: '100vh', 
             display: 'flex', 
             justifyContent: 'center', 
             alignItems: 'center', 
-            }}>
+        }}>
         <CssBaseline />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <Box
@@ -43,9 +44,9 @@ export default function LoginPage() {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              
             }}
           >
+          <Link to="/" className="backButton"><GoHomeIcon/></Link> 
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
@@ -82,14 +83,14 @@ export default function LoginPage() {
               >
                 Sign In
               </Button>
-              <Grid container spacing={2} alignItems="center" justify="center">
+              <Grid container spacing={2} alignItems="center" justify="center" className="muiLink">
                 <Grid item xs>
-                  <MuiLink variant="body2" component={Link} to="/forgetPassword">
+                  <MuiLink variant="body2" component={Link} to="/forgetPassword" >
                     Forgot password?
                   </MuiLink>
                 </Grid>
                 <Grid item>
-                  <MuiLink variant="body2" component={Link} to="/signUp">
+                  <MuiLink variant="body2" component={Link} to="/signUp" >
                     Don't have an account? Sign Up
                   </MuiLink>
                 </Grid>

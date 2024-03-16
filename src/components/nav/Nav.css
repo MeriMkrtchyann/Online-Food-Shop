@@ -14,15 +14,6 @@
     padding: 0 40px;
 }
 
-.logo {
-    background : white;
-    height: 100%;
- }
-
-.logo img {
-    height: 100%;  
-}
-
 .conteyner-categories-list-user {
     display: flex;
     justify-content: flex-end;
