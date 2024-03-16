@@ -1,6 +1,7 @@
 import {Link} from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faList } from '@fortawesome/free-solid-svg-icons'
+import "./PyramidMenu.css"
 
 export default function PyramidMenu(){
     return(

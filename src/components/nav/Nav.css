@@ -14,65 +14,7 @@
     padding: 0 40px;
 }
 
-.conteyner-categories-list-user {
-    display: flex;
-    justify-content: flex-end;
-    align-items:center;
-    color: white;
-    font-size:20px;
-}
 
-.categories{
-    display: flex;
-}
-
-.categories a {
-    text-decoration: none; 
-    color: white; 
-    margin-left:20px;
-    margin-right:20px;
-}
-
-.user {
-    margin-left:80px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.fa-user {
-    color : white;
-}
-
-.fa-List {
-    display:none;
-}
-
-.categoriHotDishes a{
-    color:white;
-}
-
-.categoriHotDishes{
-    font-size:17px;
-    position: absolute;
-    display: block;
-    background: black;
-    padding:10px;
-}
-
-@media screen and (max-width: 820px){
-    .fa-List {
-        display:block;
-        font-size:20px;
-        color : white;
-    }
-    .categories{
-        display:none; 
-    }
-    .user {
-        margin-left:30px;
-    }
-}
 
 
 
