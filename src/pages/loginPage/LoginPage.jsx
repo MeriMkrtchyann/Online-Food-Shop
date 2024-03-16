@@ -11,6 +11,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import "./LoginPage.css"
 
 const defaultTheme = createTheme();
 
@@ -26,7 +27,7 @@ export default function LoginPage() {
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Grid container component="main" 
+      <Grid container component="main" className="barev" 
         sx={{ 
             height: '100vh', 
             display: 'flex', 
@@ -81,19 +82,15 @@ export default function LoginPage() {
               >
                 Sign In
               </Button>
-              <Grid container>
+              <Grid container spacing={2} alignItems="center" justify="center">
                 <Grid item xs>
-                  <MuiLink variant="body2">
-                    <Link to="/forgetPassword">
-                        Forgot password?
-                    </Link>
+                  <MuiLink variant="body2" component={Link} to="/forgetPassword">
+                    Forgot password?
                   </MuiLink>
                 </Grid>
                 <Grid item>
-                  <MuiLink variant="body2">
-                    <Link to="/signUp">
-                        Don't have an account? Sign Up
-                    </Link>
+                  <MuiLink variant="body2" component={Link} to="/signUp">
+                    Don't have an account? Sign Up
                   </MuiLink>
                 </Grid>
               </Grid>

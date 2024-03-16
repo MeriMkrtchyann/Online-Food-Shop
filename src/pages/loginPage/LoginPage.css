@@ -1,0 +1,14 @@
+.barev {
+    background-image: url("./loginPageBackgraund.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.barev a {
+    text-decoration: none; 
+}
+
+.barev a:hover {
+    color: #0b0bff;
+  }
