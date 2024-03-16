@@ -1,6 +1,6 @@
 import Logo from "../logo/Logo";
 import Categories from '../categories/Categories';
-import PyramidMenu from "../categories/PyramidMenu";
+import PyramidMenu from "../categories/pyramidMenu/PyramidMenu";
 import User from "../user/User";
 import "./Nav.css"
 

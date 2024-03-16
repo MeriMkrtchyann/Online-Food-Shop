@@ -17,7 +17,7 @@
 .container{
     display: flex;
     height : 70px;
-    justify-content :start;
+    justify-content : flex-start;
 }
 
 @media screen and (max-width: 900px) {
