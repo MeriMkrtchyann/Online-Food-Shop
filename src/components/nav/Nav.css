@@ -11,8 +11,24 @@
     height : 70px;
     background-color : black;
     color: white;
-    padding: 0 40px;
+    padding: 0 50px;
 }
+
+.container{
+    display: flex;
+    height : 70px;
+    justify-content :start;
+}
+
+@media screen and (max-width: 900px) {
+    .container{
+        display: flex;
+        height : 70px;
+        width : 50%;
+        justify-content : space-between;
+    }
+}
+
 
 
 

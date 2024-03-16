@@ -3,11 +3,8 @@ import "./PyramidMenu.css"
 
 export default function PyramidMenu(){
 
-    const barev = () => {
-        console.log("barev")
-    }
     return(
-        <button onClick={barev} className="pyramidButton">
+        <button className="pyramidButton">
             <PyramidMenuIcon />
         </button>
     )  
