@@ -1,13 +1,12 @@
 import {Link} from "react-router-dom"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-regular-svg-icons';
+import {UserIcon} from "../icons/Icons"
 import "./User.css"
 
 export default function User(){
     return(
         <div className='user'>
             <Link to = "/signIn">
-                <FontAwesomeIcon icon={faUser} className="fa-light fa-user" />
+                <UserIcon/>
             </Link>
         </div> 
     )  
