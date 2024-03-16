@@ -1,6 +1,6 @@
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
-import RegPage from "./pages/LoginPage";
+import RegPage from "./pages/RegPage";
 import { Route, Routes } from 'react-router-dom'
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
       <Routes>
           <Route path="/" element={<HomePage/>} />
           <Route path="/login" element={<LoginPage/>}/>
-          <Route path="/registration" element={<RegPage/>}/>
+          <Route path="/login/registration" element={<RegPage/>}/> 
           {/* <Route path="/hotdishes" element={<HotDishesPage/>}/>  */}
       </Routes>
     </>
