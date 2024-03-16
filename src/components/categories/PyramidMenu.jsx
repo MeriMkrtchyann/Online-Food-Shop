@@ -1,11 +1,14 @@
-import {Link} from "react-router-dom"
 import {PyramidMenuIcon} from "../icons/Icons"
 import "./PyramidMenu.css"
 
 export default function PyramidMenu(){
+
+    const barev = () => {
+        console.log("barev")
+    }
     return(
-        <Link to = "/">
-            <PyramidMenuIcon/>
-        </Link>
+        <button onClick={barev} className="pyramidButton">
+            <PyramidMenuIcon />
+        </button>
     )  
 }
