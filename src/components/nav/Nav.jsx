@@ -65,7 +65,7 @@ export default function Nav(){
                     </Link>
                 </div>
                 <div className='user'>
-                    <Link to = "/login">
+                    <Link to = "/signIn">
                         <FontAwesomeIcon icon={faUser} className="fa-light fa-user" />
                     </Link>
                 </div>
