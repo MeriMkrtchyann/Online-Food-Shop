@@ -19,9 +19,13 @@ export default function SignUp() {
   const [ contact , setContact ] = React.useState("")
 
   const handleContactChange  = ( event ) => {
-    let number = event.target.value.slice(5,event.target.value.length).replace(/\D/g, '')
-    if (number.length < 9 ){
-      setContact(number);
+    console.log(event.target.value.slice(6,))
+    if (!(event.target.value.startsWith("(+374) 0"))){
+      let number = event.target.value.slice(5,event.target.value.length).replace(/\D/g, '')
+      if (number.length < 9 ){
+        setContact(number);
+      }
+      return
     }
   }
 
@@ -124,9 +128,9 @@ export default function SignUp() {
                   type="text"
                   name="formattedContact"
                   autoComplete="contact"
-                  value={`+374 ${contact}`}
+                  value={`(+374) ${contact}`}
                   onChange={handleContactChange}
-                   />
+              />
               </Grid>
               <Grid item xs={12}
                 style={{
