@@ -106,7 +106,11 @@ export default function PersistentDrawerLeft() {
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <List>
+        <List 
+          style={{
+            padding:"0px",
+          }}
+        >
           {categories.map(({ primary, subcategories }, index) => (
             <React.Fragment key={primary} style={{paddingTop:"0px"}}>
               <ListItem key={primary} disablePadding>
