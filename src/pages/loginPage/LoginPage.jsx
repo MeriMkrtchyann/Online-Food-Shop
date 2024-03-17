@@ -29,18 +29,25 @@ export default function LoginPage() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <Grid container component="main" className="loginPage" 
+        style={{
+          backgroundImage: `url(${process.env.PUBLIC_URL}/img/loginPageBackgraund.webp)`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
         sx={{ 
             height: '100vh', 
             display: 'flex', 
             justifyContent: 'center', 
             alignItems: 'center', 
-        }}>
+        }}
+        >
         <CssBaseline />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square 
           style={{
               background: "#e1e1e1",
               borderRadius: "15px",
-              boxShadow: '5px 5px 5px rgba(0, 0, 0, 0.3)',
+              boxShadow: '2px 4px 4px rgba(255, 255, 255, 0.5)',
           }}>
           <Box
             sx={{
