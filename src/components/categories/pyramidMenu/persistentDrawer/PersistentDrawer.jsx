@@ -95,7 +95,7 @@ export default function PersistentDrawerLeft() {
       >
         <DrawerHeader 
           style={{
-            backgroundImage: `url(${process.env.PUBLIC_URL + "img/barev.jpg"})`,
+            backgroundImage: `url(${process.env.PUBLIC_URL + "img/loginName.webp"})`,
             width: '100%',
             backgroundSize: 'cover',
             padding : "5px",

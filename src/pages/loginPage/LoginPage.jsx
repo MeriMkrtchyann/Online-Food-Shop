@@ -46,8 +46,9 @@ export default function LoginPage() {
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square 
           style={{
               background: "#e1e1e1",
+              background: "white",
               borderRadius: "15px",
-              boxShadow: '2px 4px 4px rgba(255, 255, 255, 0.5)',
+              boxShadow: '2px 4px 4px rgba(157, 154, 161, 1)',
           }}>
           <Box
             sx={{
@@ -58,7 +59,9 @@ export default function LoginPage() {
               alignItems: 'center',
             }}
           >
-          <Link to="/" className="backButton"><GoHomeIcon/></Link> 
+          <Link to="/" className="backButton">
+            <GoHomeIcon/>
+          </Link> 
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
