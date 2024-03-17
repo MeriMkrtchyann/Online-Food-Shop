@@ -12,23 +12,11 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { GoHomeIcon } from '../../components/icons/Icons';
+import UserPhoneAndValidation from '../../components/validations/UserPhoneAndValidation';
 
 const defaultTheme = createTheme();
 
 export default function SignUp() {
-
-  const [ contact , setContact ] = React.useState("")
-
-  const handleContactChange  = ( event ) => {
-    console.log(event.target.value.slice(6,))
-    if (!(event.target.value.startsWith("(+374) 0"))){
-      let number = event.target.value.slice(5,event.target.value.length).replace(/\D/g, '')
-      if (number.length < 9 ){
-        setContact(number);
-      }
-      return
-    }
-  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -36,22 +24,41 @@ export default function SignUp() {
     console.log({
       email: data.get('email'),
       password: data.get('password'),
-      contact: `+374 (${contact})`,
     });
   };
 
   return (
     <ThemeProvider theme={defaultTheme}>
+      <Grid container component="main" className="SignUpPage"
+        style={{
+          backgroundImage: `url(${process.env.PUBLIC_URL}/img/loginPageBackgraund.webp)`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          height: "100vh",
+        }}
+        sx={{ 
+            height: '100vh', 
+            display: 'flex', 
+            justifyContent: 'center', 
+            alignItems: 'center', 
+        }}
+      >
       <Link to="/" className="backButton">
-            <GoHomeIcon color="black" />
+            <GoHomeIcon color="white" />
       </Link> 
-      <Container component="main" maxWidth="xs">
-        <div className="backButton">
-          <CssBaseline />
-        </div>
+      <Grid item xs={12} sm={8} md={5} elevation={6} square 
+          style={{
+              background: "#e1e1e1",
+              background: "white",
+              borderRadius: "15px",
+              boxShadow: '2px 4px 4px rgba(157, 154, 161, 1)',
+          }}>
+          <Container component="main" maxWidth="xs">
+        <CssBaseline />
         <Box
           sx={{
-            margin : 3,
+            margin : 2,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -120,24 +127,7 @@ export default function SignUp() {
                   autoComplete="email"
                 />
               </Grid>
-              <Grid item xs={12}
-                style={{
-                  paddingTop: 10
-                }}
-              >
-              <input type="hidden" name="contact" value={contact} />
-              <TextField
-                  required
-                  fullWidth
-                  id="contact"
-                  label="Contact"
-                  type="text"
-                  name="formattedContact"
-                  autoComplete="contact"
-                  value={`(+374) ${contact}`}
-                  onChange={handleContactChange}
-              />
-              </Grid>
+              <UserPhoneAndValidation/>
               <Grid item xs={12}
                 style={{
                   paddingTop: 10
@@ -207,6 +197,10 @@ export default function SignUp() {
           </Box>
         </Box>
       </Container>
+          
+      </Grid>
+      
+      </Grid>
     </ThemeProvider>
   );
 }
