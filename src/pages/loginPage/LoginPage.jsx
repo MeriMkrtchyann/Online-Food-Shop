@@ -34,6 +34,7 @@ export default function LoginPage() {
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
+          height: "100vh",
         }}
         sx={{ 
             height: '100vh', 
@@ -45,7 +46,6 @@ export default function LoginPage() {
         <CssBaseline />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square 
           style={{
-              background: "#e1e1e1",
               background: "white",
               borderRadius: "15px",
               boxShadow: '2px 4px 4px rgba(157, 154, 161, 1)',
@@ -53,7 +53,7 @@ export default function LoginPage() {
           <Box
             sx={{
               my: 8,
-              mx: 10,
+              mx: 8,
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
