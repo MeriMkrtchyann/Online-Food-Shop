@@ -36,7 +36,12 @@ export default function LoginPage() {
             alignItems: 'center', 
         }}>
         <CssBaseline />
-        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square 
+          style={{
+              background: "#e1e1e1",
+              borderRadius: "15px",
+              boxShadow: '5px 5px 5px rgba(0, 0, 0, 0.3)',
+          }}>
           <Box
             sx={{
               my: 8,
