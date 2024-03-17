@@ -9,21 +9,3 @@ export default function PyramidMenu(){
         </button>
     )  
 }
-
-// import PersistentDrawerLeft from "./persistentDrawer/PersistentDrawer"
-// import "./PyramidMenu.css"
-
-// export default function PyramidMenu(){
-
-//     return(
-//         <div clssName="payramidIcon">
-//              <PersistentDrawerLeft className="fa-List"/>
-//         </div>
-       
-//     )  
-// }
-
-
-
-
-

@@ -10,6 +10,17 @@
     cursor: pointer;
 }
 
+.MuiDivider-root {
+    height:7px;
+}
+
+.css-1k455el {
+    background-image: url("./logoName.webp");
+    width: 100%;
+    background-size: cover; 
+    margin-right:20px;
+}
+
 @media screen and (max-width: 1000px) {
     .pyramidButton{
         display: block;

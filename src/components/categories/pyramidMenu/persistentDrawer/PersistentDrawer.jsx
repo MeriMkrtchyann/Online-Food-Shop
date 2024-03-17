@@ -51,12 +51,26 @@ const StyledDrawer = styled(Drawer)({
   },
 });
 
+const categories = [
+  { primary: 'Hot dishes', subcategories: ['Soup', 'Pasta', 'Pizza'] },
+  { primary: 'Fresh rolls', subcategories: ['Sushi rolls', 'Spring rolls', 'Vegan rolls'] },
+  { primary: 'Salads', subcategories: ['Caesar salad', 'Greek salad', 'Fruit salad'] },
+  { primary: 'Sushi', subcategories: ['Nigiri', 'Sashimi', 'Maki'] },
+  { primary: 'Burgers', subcategories: ['Beef burgers', 'Chicken burgers', 'Vegetarian burgers'] },
+  { primary: 'Desserts', subcategories: ['Ice cream', 'Cake', 'Fruit salad'] },
+];
+
 export default function PersistentDrawerLeft() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const [selectedCategory, setSelectedCategory] = React.useState(null);
 
   const handleDrawerOpenAndClose = () => {
     setOpen(!open);
+  };
+
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(selectedCategory === category ? null : category);
   };
 
   return (
@@ -70,7 +84,7 @@ export default function PersistentDrawerLeft() {
             onClick={handleDrawerOpenAndClose}
             edge="start"
           >
-            <MenuIcon />
+          <MenuIcon />
           </IconButton>
         </Toolbar>
       </AppBar>
@@ -86,12 +100,26 @@ export default function PersistentDrawerLeft() {
         </DrawerHeader>
         <Divider />
         <List>
-          {['Hot dishes', 'Fresh rolls', 'Salads', 'Sushi', 'Burders', 'Desserts'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
+          {categories.map(({ primary, subcategories }, index) => (
+            <React.Fragment key={primary}>
+              <ListItem key={primary} disablePadding>
+                <ListItemButton onClick={() => handleCategoryClick(primary)}>
+                  <ListItemText primary={primary}/>
+                </ListItemButton>
+              </ListItem>
+              {selectedCategory === primary && (
+                <List>
+                  {subcategories.map((subcategory, subIndex) => (
+                    <ListItem key={`${primary}-${subIndex}`} disablePadding>
+                      <ListItemButton onClick={() => console.log(subcategory)} sx={{ pl: 4 }}>
+                        <ListItemText primary={subcategory} />
+                      </ListItemButton>
+                    </ListItem>
+                  ))}
+                </List>
+              )}
+              <Divider />
+            </React.Fragment>
           ))}
         </List>
       </StyledDrawer>
