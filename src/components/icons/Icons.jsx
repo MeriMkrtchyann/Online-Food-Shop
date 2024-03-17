@@ -1,11 +1,22 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faList, faUser} from '@fortawesome/free-solid-svg-icons';
 
-function GoHomeIcon() {
+function GoHomeIcon({ color }) {
   return (
-    <>
+    <div 
+      style={{
+        position: 'absolute',
+        top: '10px',
+        left: '10px',
+        fontSize: '30px',
+        textDecoration: 'none',
+        margin: '20px',
+        transition: 'color 0.3s ease', 
+        color: color ,
+      }}
+    >
       <FontAwesomeIcon icon={faHome} />
-    </>
+    </div>
   );
 }
 

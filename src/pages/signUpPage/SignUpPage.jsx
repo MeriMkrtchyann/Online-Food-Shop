@@ -11,6 +11,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { GoHomeIcon } from '../../components/icons/Icons';
 
 const defaultTheme = createTheme();
 
@@ -41,8 +42,13 @@ export default function SignUp() {
 
   return (
     <ThemeProvider theme={defaultTheme}>
+      <Link to="/" className="backButton">
+            <GoHomeIcon color="black" />
+      </Link> 
       <Container component="main" maxWidth="xs">
-        <CssBaseline />
+        <div className="backButton">
+          <CssBaseline />
+        </div>
         <Box
           sx={{
             margin : 3,

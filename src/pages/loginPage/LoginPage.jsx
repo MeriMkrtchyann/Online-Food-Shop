@@ -60,7 +60,7 @@ export default function LoginPage() {
             }}
           >
           <Link to="/" className="backButton">
-            <GoHomeIcon/>
+            <GoHomeIcon color="white" />
           </Link> 
             <Typography component="h1" variant="h5">
               Sign in
