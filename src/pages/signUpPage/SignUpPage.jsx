@@ -15,12 +15,23 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 const defaultTheme = createTheme();
 
 export default function SignUp() {
+
+  const [ contact , setContact ] = React.useState("")
+
+  const handleContactChange  = ( event ) => {
+    let number = event.target.value.slice(5,event.target.value.length).replace(/\D/g, '')
+    if (number.length < 9 ){
+      setContact(number);
+    }
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
       email: data.get('email'),
       password: data.get('password'),
+      contact: `+374 (${contact})`,
     });
   };
 
@@ -30,7 +41,7 @@ export default function SignUp() {
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 5,
+            margin : 3,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -41,7 +52,11 @@ export default function SignUp() {
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12} sm={6} 
+                style={{
+                  paddingTop: 10
+                }}
+              >
                 <TextField
                   autoComplete="given-name"
                   name="firstName"
@@ -52,7 +67,11 @@ export default function SignUp() {
                   autoFocus
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12} sm={6}
+                style={{
+                  paddingTop: 10
+                }}
+              >
                 <TextField
                   required
                   fullWidth
@@ -62,7 +81,11 @@ export default function SignUp() {
                   autoComplete="family-name"
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12}
+                style={{
+                  paddingTop: 10
+                }}
+              >
                 <TextField
                   required
                   fullWidth
@@ -72,7 +95,11 @@ export default function SignUp() {
                   autoComplete="username"
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12}
+                style={{
+                  paddingTop: 10
+                }}
+              >
                 <TextField
                   required
                   fullWidth
@@ -83,17 +110,29 @@ export default function SignUp() {
                   autoComplete="email"
                 />
               </Grid>
-              <Grid item xs={12}>
-                <TextField
+              <Grid item xs={12}
+                style={{
+                  paddingTop: 10
+                }}
+              >
+              <input type="hidden" name="contact" value={contact} />
+              <TextField
                   required
                   fullWidth
                   id="contact"
                   label="Contact"
-                  name="contact"
+                  type="text"
+                  name="formattedContact"
                   autoComplete="contact"
-                />
+                  value={`+374 ${contact}`}
+                  onChange={handleContactChange}
+                   />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12}
+                style={{
+                  paddingTop: 10
+                }}
+              >
                 <TextField
                   required
                   fullWidth
@@ -103,7 +142,11 @@ export default function SignUp() {
                   autoComplete="address"
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12}
+                style={{
+                  paddingTop: 10
+                }}
+              >
                 <TextField
                   required
                   fullWidth
@@ -114,7 +157,11 @@ export default function SignUp() {
                   autoComplete="newPassword"
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12}
+                style={{
+                  paddingTop: 10
+                }}
+              >
                 <TextField
                   required
                   fullWidth
