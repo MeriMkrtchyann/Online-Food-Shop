@@ -47,18 +47,17 @@ export default function SignUp() {
       <Link to="/" className="backButton">
             <GoHomeIcon color="white" />
       </Link> 
-      <Grid item xs={12} sm={8} md={5} elevation={6} square 
+      <Grid xs={12} sm={8} md={5} elevation={6} square 
           style={{
-              background: "#e1e1e1",
               background: "white",
               borderRadius: "15px",
               boxShadow: '2px 4px 4px rgba(157, 154, 161, 1)',
           }}>
-          <Container component="main" maxWidth="xs">
+          <Container component="main" >
         <CssBaseline />
         <Box
           sx={{
-            margin : 2,
+            margin : 3,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
