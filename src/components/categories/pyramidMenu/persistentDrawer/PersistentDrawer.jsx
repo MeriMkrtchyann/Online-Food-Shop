@@ -74,7 +74,7 @@ export default function PersistentDrawerLeft() {
   };
 
   return (
-    <Box sx={{ display: 'flex', width: 'px' }}> 
+    <Box sx={{ display: 'flex' }}> 
       <CssBaseline />
       <AppBar open={open}>
         <Toolbar>
@@ -93,7 +93,14 @@ export default function PersistentDrawerLeft() {
         anchor="left"
         open={open}
       >
-        <DrawerHeader>
+        <DrawerHeader 
+          style={{
+            backgroundImage: `url(${process.env.PUBLIC_URL + "img/barev.jpg"})`,
+            width: '100%',
+            backgroundSize: 'cover',
+            padding : "5px",
+          }}
+        >
           <IconButton onClick={handleDrawerOpenAndClose}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
@@ -101,7 +108,7 @@ export default function PersistentDrawerLeft() {
         <Divider />
         <List>
           {categories.map(({ primary, subcategories }, index) => (
-            <React.Fragment key={primary}>
+            <React.Fragment key={primary} style={{paddingTop:"0px"}}>
               <ListItem key={primary} disablePadding>
                 <ListItemButton onClick={() => handleCategoryClick(primary)}>
                   <ListItemText primary={primary}/>
