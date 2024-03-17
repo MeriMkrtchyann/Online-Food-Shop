@@ -33,7 +33,7 @@
     color : #9f9f9f;
 }
 
-@media screen and (max-width: 900px){
+@media screen and (max-width: 950px){
     .categories{
         display:none; 
     }

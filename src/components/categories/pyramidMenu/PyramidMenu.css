@@ -1,11 +1,7 @@
 .fa-List {
     display: none;
 }
-  
-.fa-List {
-    display: none;
-}
-  
+
 .pyramidButton {
     border: none;
     background: none;
@@ -14,15 +10,9 @@
     cursor: pointer;
 }
   
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 950px) {
     .fa-List {
         display: block;
-        font-size: 25px;
-        color: white;
-    }
-
-    .pyramidButton :hover {
-        color : #9f9f9f;
     }
 }
   
