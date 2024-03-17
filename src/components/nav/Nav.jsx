@@ -9,8 +9,8 @@ export default function Nav(){
     return(
         <nav className='nav'>
             <div className='container'>
-                <PyramidMenu className='pramidMenu'/>
-                <Logo/>
+                <PyramidMenu/>
+                <Logo/>  
             </div>
             <div className="conteyner-categories-list-user">
                 <Categories/>

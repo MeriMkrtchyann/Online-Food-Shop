@@ -9,18 +9,18 @@
     align-items : center;
     justify-content : space-between;
     height : 70px;
+    width : 100%;
     background-color : black;
     color: white;
     padding: 0 50px;
+    position: fixed;
 }
 
 .container{
     display: flex;
-    height : 70px;
+    height : 90px;
     justify-content : flex-start;
 }
-
-
 
 @media screen and (max-width: 950px) {
     .container{

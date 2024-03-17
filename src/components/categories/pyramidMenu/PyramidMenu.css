@@ -1,4 +1,4 @@
-.fa-List {
+.pyramidButton {
     display: none;
 }
 
@@ -9,10 +9,9 @@
     margin: 0;
     cursor: pointer;
 }
-  
-@media screen and (max-width: 950px) {
-    .fa-List {
+
+@media screen and (max-width: 900px) {
+    .pyramidButton{
         display: block;
     }
 }
-  

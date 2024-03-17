@@ -24,6 +24,8 @@ const AppBar = styled(MuiAppBar, {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
   }),
+  width: '40px', 
+  marginRight: "95%",
   ...(open && {
     marginLeft: `${drawerWidth}px`,
     transition: theme.transitions.create(['margin', 'width'], {
@@ -31,7 +33,7 @@ const AppBar = styled(MuiAppBar, {
       duration: theme.transitions.duration.enteringScreen,
     }),
   }),
-  height: "0",
+  background:"black",
 }));
 
 const DrawerHeader = styled('div')(({ theme }) => ({
@@ -42,49 +44,43 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
+const StyledDrawer = styled(Drawer)({
+  '& .MuiDrawer-paper': {
+    width: drawerWidth, 
+    boxSizing: 'border-box',
+  },
+});
+
 export default function PersistentDrawerLeft() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
+  const handleDrawerOpenAndClose = () => {
+    setOpen(!open);
   };
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex', width: 'px' }}> 
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      <AppBar open={open}>
         <Toolbar>
           <IconButton
             color="inherit"
             aria-label="open drawer"
-            onClick={handleDrawerOpen}
+            onClick={handleDrawerOpenAndClose}
             edge="start"
-            sx={{ mr: 2, ...(open && { display: 'none'  }) }}
           >
             <MenuIcon />
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Drawer
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          '& .MuiDrawer-paper': {
-            width: drawerWidth,
-            boxSizing: 'border-box',
-          },
-        }}
+      <StyledDrawer
         variant="persistent"
         anchor="left"
         open={open}
       >
         <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
+          <IconButton onClick={handleDrawerOpenAndClose}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </DrawerHeader>
@@ -98,7 +94,7 @@ export default function PersistentDrawerLeft() {
             </ListItem>
           ))}
         </List>
-      </Drawer>
+      </StyledDrawer>
     </Box>
   );
 }
