@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faList, faUser} from '@fortawesome/free-solid-svg-icons';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
 function GoHomeIcon({ color }) {
   return (
@@ -36,4 +37,20 @@ function UserIcon() {
   );
 }
 
-export { GoHomeIcon, PyramidMenuIcon, UserIcon };
+function ValidOrInvalid({isValid, isInvalid}){
+
+  let iconColor = '';
+  if (isValid) {
+      iconColor = 'green';
+  } else if (isInvalid) {
+      iconColor = 'red';
+  }
+
+  const iconComponent = iconColor && (
+    <CheckCircleOutlineIcon style={{ color: iconColor }} />
+  );
+
+  return <>{iconComponent}</>
+}
+
+export { GoHomeIcon, PyramidMenuIcon, UserIcon, ValidOrInvalid };

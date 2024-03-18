@@ -1,7 +1,7 @@
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
-import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import { ValidOrInvalid } from '../icons/Icons';
 
 export default function UserPhoneAndValidation(){
     
@@ -9,13 +9,6 @@ export default function UserPhoneAndValidation(){
 
     const isUserNameValid = contact.length > 7;
     const isUserNameInvalid = contact.length > 0 && contact.length < 8;
-
-    let iconColor = '';
-    if (isUserNameValid) {
-        iconColor = 'green';
-    } else if (isUserNameInvalid) {
-        iconColor = 'red';
-    }
 
     const handleContactChange  = ( event ) => {
       console.log(event.target.value.slice(6,))
@@ -46,9 +39,7 @@ export default function UserPhoneAndValidation(){
                 value={`(+374) ${contact}`}
                 onChange={handleContactChange}
                 InputProps={{
-                    endAdornment: iconColor && (
-                        <CheckCircleOutlineIcon style={{ color: iconColor }} />
-                    ),
+                    endAdornment: <ValidOrInvalid isValid={isUserNameValid} isInvalid={isUserNameInvalid} />
                 }}
             />
         </Grid>
