@@ -14,6 +14,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { GoHomeIcon } from '../../components/icons/Icons';
 import UserPhoneAndValidation from '../../components/validations/UserPhoneAndValidation';
 import UserFirstNameAndValidation from '../../components/validations/UserFirstNameAndValidation';
+import UserLastNameAndValidation from '../../components/validations/UserLastNameAndValidation';
 
 const defaultTheme = createTheme();
 
@@ -70,20 +71,8 @@ export default function SignUp() {
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <UserFirstNameAndValidation/>
-              <Grid item xs={12} sm={6}
-                style={{
-                  paddingTop: 10
-                }}
-              >
-                <TextField
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="family-name"
-                />
-              </Grid>
+              <UserLastNameAndValidation/>
+              
               <Grid item xs={12}
                 style={{
                   paddingTop: 10

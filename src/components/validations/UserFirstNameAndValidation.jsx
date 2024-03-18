@@ -9,8 +9,12 @@ export default function UserFirstNameAndValidation() {
     const handleUserNameChange = (event) => {
         const input = event.target.value;
         const onlyLettersRegex = /^[a-zA-Z]+$/
+        if (!input.length ){
+            setUserFirstName("")
+        }
         if (input.length < 15 && input.match(onlyLettersRegex)){
-            setUserFirstName(input.charAt(0).toUpperCase() + input.slice(1));
+            const formattedName = input.charAt(0).toUpperCase() + input.slice(1).toLowerCase(); 
+            setUserFirstName(formattedName);
         }
     };
 
