@@ -11,7 +11,7 @@ export default function UserAddresAndValidation(){
         setaddres(event.target.value)
     }
 
-    const isAddresValid = !addres 
+    const isAddresValid = !addres || addres
     const isInvalid = false
 
     return (
@@ -20,7 +20,7 @@ export default function UserAddresAndValidation(){
                 required
                 fullWidth
                 id="addres"
-                label="Email Address"
+                label="Address"
                 type="addres"
                 name="addres"
                 autoComplete="addres"
