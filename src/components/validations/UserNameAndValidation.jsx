@@ -13,7 +13,7 @@ export default function UserNameAndValidation() {
         }
     };
 
-    const isUserNameValid = userName.length > 3;
+    const isUserNameValid = userName.length > 3 
     const isUserNameInalid = userName.length >= 1 && userName.length < 4;
 
     return (

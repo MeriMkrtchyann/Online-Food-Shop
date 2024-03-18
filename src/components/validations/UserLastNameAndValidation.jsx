@@ -18,7 +18,7 @@ export default function UserLastNameAndValidation() {
         }
     };
 
-    const isUserLastNameValid = userLastName.length > 3;
+    const isUserLastNameValid = userLastName.length > 3 
     const isUserLastNameInalid = userLastName.length >= 1 && userLastName.length < 4;
 
     return (

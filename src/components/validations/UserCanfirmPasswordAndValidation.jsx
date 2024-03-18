@@ -11,7 +11,7 @@ export default function UserCanfirmPasswordAndValidation({password}){
         setCanfirmPassword(event.target.value)
     }
     
-    let isCanfirmPasswordValid = password  && password === canfirmPassword
+    let isCanfirmPasswordValid = password  && password === canfirmPassword 
     let isCanfirmPasswordInvalid = !(password === canfirmPassword)
 
     return (

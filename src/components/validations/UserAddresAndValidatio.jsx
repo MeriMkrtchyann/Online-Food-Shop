@@ -11,8 +11,9 @@ export default function UserAddresAndValidation(){
         setaddres(event.target.value)
     }
 
-    const isAddresValid = !addres || addres
+    const isAddresValid = !addres || addres 
     const isInvalid = false
+    
 
     return (
         <Grid item xs={12}style={{ paddingTop: 10 }}>

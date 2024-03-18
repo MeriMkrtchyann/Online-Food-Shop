@@ -29,11 +29,7 @@ export  function SignUpPage() {
 
   const handleRegistration = async (event) => {
     event.preventDefault();
-    try {
-      
-      
-    } catch (error) {
-    }
+    
   }
     
   return (
