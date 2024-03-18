@@ -19,6 +19,8 @@ import UserEmailAndValidation from '../../components/validations/UserEmailAndVal
 import UserAddresAndValidation from '../../components/validations/UserAddresAndValidatio';
 import UserPasswordValidation from '../../components/validations/UserPasswordValidation';
 import UserCanfirmPasswordAndValidation from '../../components/validations/UserCanfirmPasswordAndValidation';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from "../../firebase/firebase"
 
 const defaultTheme = createTheme();
 
@@ -29,7 +31,13 @@ export  function SignUpPage() {
 
   const handleRegistration = async (event) => {
     event.preventDefault();
-    
+    createUserWithEmailAndPassword(auth , email , password)
+      .then((user) => {
+        console.log(user)
+        setEmail("")
+        setPassword("")
+      })
+      .catch((err) => console.log(err))
   }
     
   return (

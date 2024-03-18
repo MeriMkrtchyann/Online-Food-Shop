@@ -9,7 +9,7 @@ export default function UserPasswordValidation({password, setPassword}){
         setPassword(event.target.value)
     }
     
-    const passwordValidationRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[\w@$!%*?&.\\]{8,}$/
+    const passwordValidationRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[\w@$!%*?&.\\]{8,}$/;
     let isPasswordValid = password.match(passwordValidationRegex);
     let isPasswordInvalid = password.length && !isPasswordValid;
 
