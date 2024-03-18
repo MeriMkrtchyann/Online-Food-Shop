@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import MuiLink from '@mui/material/Link';
@@ -19,10 +18,13 @@ import UserNameAndValidation from '../../components/validations/UserNameAndValid
 import UserEmailAndValidation from '../../components/validations/UserEmailAndValidaion';
 import UserAddresAndValidation from '../../components/validations/UserAddresAndValidatio';
 import UserPasswordValidation from '../../components/validations/UserPasswordValidation';
+import UserCanfirmPasswordAndValidation from '../../components/validations/UserCanfirmPasswordAndValidation';
 
 const defaultTheme = createTheme();
 
 export default function SignUp() {
+
+  const [ password, setPassword ] = React.useState("")
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -72,7 +74,9 @@ export default function SignUp() {
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
+          
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+         
             <Grid container spacing={2}>
               <UserFirstNameAndValidation/>
               <UserLastNameAndValidation/>
@@ -80,24 +84,8 @@ export default function SignUp() {
               <UserEmailAndValidation/>
               <UserPhoneAndValidation/>
               <UserAddresAndValidation/>
-              <UserPasswordValidation/>
-
-              
-              <Grid item xs={12}
-                style={{
-                  paddingTop: 10
-                }}
-              >
-                <TextField
-                  required
-                  fullWidth
-                  name="confirmPassword"
-                  label="Confirm Password"
-                  type="password"
-                  id="confirmPassword"
-                  autoComplete="confirmPassword"
-                />
-              </Grid>
+              <UserPasswordValidation password={password} setPassword={setPassword}/>
+              <UserCanfirmPasswordAndValidation  password={password}/>
               <Grid item xs={12}>
                 <FormControlLabel
                   control={<Checkbox value="allowExtraEmails" color="primary" />}

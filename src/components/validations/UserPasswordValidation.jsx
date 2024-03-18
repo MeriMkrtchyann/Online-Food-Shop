@@ -3,9 +3,7 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import { ValidOrInvalid } from '../icons/Icons';
 
-export default function UserPasswordValidation(){
-
-    const [ password, setPassword] = React.useState("")
+export default function UserPasswordValidation({password, setPassword}){
 
     const handlePasswordChange  = ( event ) => {
         setPassword(event.target.value)
@@ -13,7 +11,7 @@ export default function UserPasswordValidation(){
     
     const passwordValidationRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[\w@$!%*?&.\\]{8,}$/;
     let isPasswordValid = password.match(passwordValidationRegex);
-    let isPasswordInvalid = !isPasswordValid;
+    let isPasswordInvalid = password.length && !isPasswordValid;
 
     return (
         <Grid item xs={12}
