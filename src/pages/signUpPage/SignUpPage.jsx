@@ -18,6 +18,7 @@ import UserLastNameAndValidation from '../../components/validations/UserLastName
 import UserNameAndValidation from '../../components/validations/UserNameAndValidation';
 import UserEmailAndValidation from '../../components/validations/UserEmailAndValidaion';
 import UserAddresAndValidation from '../../components/validations/UserAddresAndValidatio';
+import UserPasswordValidation from '../../components/validations/UserPasswordValidation';
 
 const defaultTheme = createTheme();
 
@@ -79,22 +80,9 @@ export default function SignUp() {
               <UserEmailAndValidation/>
               <UserPhoneAndValidation/>
               <UserAddresAndValidation/>
+              <UserPasswordValidation/>
 
-              <Grid item xs={12}
-                style={{
-                  paddingTop: 10
-                }}
-              >
-                <TextField
-                  required
-                  fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
-                  autoComplete="newPassword"
-                />
-              </Grid>
+              
               <Grid item xs={12}
                 style={{
                   paddingTop: 10
