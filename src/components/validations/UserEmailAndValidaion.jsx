@@ -3,9 +3,7 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import { ValidOrInvalid } from '../icons/Icons';
 
-export default function UserEmailAndValidation(){
-    
-    const [ email , setEmail ] = React.useState("")
+export default function UserEmailAndValidation({ email , setEmail }){
 
     const handleEmailChange  = ( event ) => {
         setEmail(event.target.value)

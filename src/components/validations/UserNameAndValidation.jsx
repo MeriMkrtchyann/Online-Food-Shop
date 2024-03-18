@@ -8,7 +8,7 @@ export default function UserNameAndValidation() {
 
     const handleUserLastNameChange = (event) => {
         const input = event.target.value;
-        if (input.length < 10){
+        if (input.length < 15){
             setUserName(input)
         }
     };
