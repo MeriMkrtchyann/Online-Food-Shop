@@ -8,7 +8,7 @@ export default function UserPhoneAndValidation(){
     const [ contact , setContact ] = React.useState("")
 
     const isUserNameValid = contact.length > 7;
-    const isUserNameInvalid = contact.length > 0 && contact.length < 8;
+    const isUserNameInvalid = contact.length && contact.length < 8;
 
     const handleContactChange  = ( event ) => {
       console.log(event.target.value.slice(6,))

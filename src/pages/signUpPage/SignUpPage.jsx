@@ -15,6 +15,8 @@ import { GoHomeIcon } from '../../components/icons/Icons';
 import UserPhoneAndValidation from '../../components/validations/UserPhoneAndValidation';
 import UserFirstNameAndValidation from '../../components/validations/UserFirstNameAndValidation';
 import UserLastNameAndValidation from '../../components/validations/UserLastNameAndValidation';
+import UserNameAndValidation from '../../components/validations/UserNameAndValidation';
+import UserEmailAndValidation from '../../components/validations/UserEmailAndValidaion';
 
 const defaultTheme = createTheme();
 
@@ -72,36 +74,8 @@ export default function SignUp() {
             <Grid container spacing={2}>
               <UserFirstNameAndValidation/>
               <UserLastNameAndValidation/>
-              
-              <Grid item xs={12}
-                style={{
-                  paddingTop: 10
-                }}
-              >
-                <TextField
-                  required
-                  fullWidth
-                  id="username"
-                  label="Username"
-                  name="username"
-                  autoComplete="username"
-                />
-              </Grid>
-              <Grid item xs={12}
-                style={{
-                  paddingTop: 10
-                }}
-              >
-                <TextField
-                  required
-                  fullWidth
-                  id="email"
-                  label="Email Address"
-                  type="email"
-                  name="email"
-                  autoComplete="email"
-                />
-              </Grid>
+              <UserNameAndValidation/>
+              <UserEmailAndValidation/>
               <UserPhoneAndValidation/>
               <Grid item xs={12}
                 style={{

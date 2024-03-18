@@ -13,8 +13,8 @@ export default function UserFirstNameAndValidation() {
             setUserFirstName("")
         }
         if (input.length < 15 && input.match(onlyLettersRegex)){
-            const formattedName = input.charAt(0).toUpperCase() + input.slice(1).toLowerCase(); 
-            setUserFirstName(formattedName);
+            const formattedFirstName = input.charAt(0).toUpperCase() + input.slice(1).toLowerCase(); 
+            setUserFirstName(formattedFirstName);
         }
     };
 
