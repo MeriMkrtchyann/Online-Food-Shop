@@ -7,14 +7,15 @@ export default function UserFirstNameAndValidation() {
     const [userFirstName, setUserFirstName] = React.useState('');
 
     const handleUserNameChange = (event) => {
-        if (event.target.value !== " " ){
-            setUserFirstName(event.target.value);
+        const input = event.target.value;
+        const onlyLettersRegex = /^[a-zA-Z]+$/
+        if (input.length < 15 && input.match(onlyLettersRegex)){
+            setUserFirstName(input.charAt(0).toUpperCase() + input.slice(1));
         }
-        
     };
 
     const isUserNameValid = userFirstName.length > 3;
-    const isUserNameInvalid = userFirstName.length > 0 && userFirstName.length < 4;
+    const isUserNameInvalid = userFirstName.length >= 1 && userFirstName.length < 4;
 
     return (
         <Grid item xs={12} sm={6} style={{ paddingTop: 10 }}>
