@@ -3,9 +3,8 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import { ValidOrInvalid } from '../icons/Icons';
 
-export default function UserFirstNameAndValidation() {
-    const [userFirstName, setUserFirstName] = React.useState('');
-
+export default function UserFirstNameAndValidation({userFirstName, setUserFirstName}) {
+    
     const handleUserNameChange = (event) => {
         const input = event.target.value;
         const onlyLettersRegex = /^[a-zA-Z]+$/

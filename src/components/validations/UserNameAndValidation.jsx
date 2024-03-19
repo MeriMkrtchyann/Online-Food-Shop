@@ -3,8 +3,7 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import { ValidOrInvalid } from '../icons/Icons';
 
-export default function UserNameAndValidation() {
-    const [userName, setUserName] = React.useState('');
+export default function UserNameAndValidation({userName, setUserName}) {
 
     const handleUserLastNameChange = (event) => {
         const input = event.target.value;

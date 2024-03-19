@@ -3,17 +3,14 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import { ValidOrInvalid } from '../icons/Icons';
 
-export default function UserAddresAndValidation(){
-    
-    const [ addres , setaddres ] = React.useState("")
+export default function UserAddresAndValidation({addres , setAddres}){
 
     const handleAddresChange  = ( event ) => {
-        setaddres(event.target.value)
+        setAddres(event.target.value)
     }
 
     const isAddresValid = !addres || addres 
-    const isInvalid = false
-    
+    const isInvalid = false  
 
     return (
         <Grid item xs={12}style={{ paddingTop: 10 }}>

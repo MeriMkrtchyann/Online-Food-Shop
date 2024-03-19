@@ -19,27 +19,39 @@ import UserEmailAndValidation from '../../components/validations/UserEmailAndVal
 import UserAddresAndValidation from '../../components/validations/UserAddresAndValidatio';
 import UserPasswordValidation from '../../components/validations/UserPasswordValidation';
 import UserCanfirmPasswordAndValidation from '../../components/validations/UserCanfirmPasswordAndValidation';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
 import { auth } from "../../firebase/firebase"
 
 const defaultTheme = createTheme();
 
-export  function SignUpPage() {
-
-  const [ password, setPassword ] = React.useState("")
-  const [ email , setEmail ] = React.useState("")
+export function SignUpPage() {
+  const [userFirstName, setUserFirstName] = React.useState('');
+  const [userLastName, setUserLastName] = React.useState('');
+  const [userName, setUserName] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [contact, setContact] = React.useState('');
+  const [addres, setAddres] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const [error, setError] = React.useState('');
 
   const handleRegistration = async (event) => {
     event.preventDefault();
-    createUserWithEmailAndPassword(auth , email , password)
-      .then((user) => {
-        console.log(user)
-        setEmail("")
-        setPassword("")
-      })
-      .catch((err) => console.log(err))
-  }
-    
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      if (user) {
+        await sendEmailVerification(userCredential.user) // Отправить письмо с подтверждением
+        console.log("Email verification sent");
+        // Redirect or show message to user indicating email verification sent
+      } else {
+        setError("Failed to create user");
+      }
+    } catch (error) {
+      console.error('Ошибка при регистрации:', error.message);
+      setError(error.message);
+    }
+  };
+ 
   return (
     <ThemeProvider theme={defaultTheme} >
           <Grid container component="main" className="SignUpPage"
@@ -81,12 +93,12 @@ export  function SignUpPage() {
               </Typography>
               <Box component="form" noValidate onSubmit={handleRegistration} sx={{ mt: 3 }}>
                 <Grid container spacing={2}>
-                  <UserFirstNameAndValidation/>
-                  <UserLastNameAndValidation/>
-                  <UserNameAndValidation/>
+                  <UserFirstNameAndValidation userFirstName={userFirstName} setUserFirstName={setUserFirstName}/>
+                  <UserLastNameAndValidation userLastName={userLastName} setUserLastName={setUserLastName}/>
+                  <UserNameAndValidation userName={userName} setUserName={setUserName}/>
                   <UserEmailAndValidation email={email} setEmail={setEmail} />
-                  <UserPhoneAndValidation/>
-                  <UserAddresAndValidation/>
+                  <UserPhoneAndValidation contact={contact} setContact={setContact}/>
+                  <UserAddresAndValidation addres={addres} setAddres={setAddres}/>
                   <UserPasswordValidation password={password} setPassword={setPassword}/>
                   <UserCanfirmPasswordAndValidation  password={password}/>
                   <Grid item xs={12}>

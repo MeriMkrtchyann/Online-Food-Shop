@@ -3,9 +3,7 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import { ValidOrInvalid } from '../icons/Icons';
 
-export default function UserPhoneAndValidation(){
-    
-    const [ contact , setContact ] = React.useState("")
+export default function UserPhoneAndValidation({contact , setContact}){
 
     const isUserNameValid = contact.length > 7 
     const isUserNameInvalid = contact.length && contact.length < 8;
