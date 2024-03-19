@@ -19,7 +19,7 @@ export default function UserFirstNameAndValidation({userFirstName, setUserFirstN
     const isUserNameInvalid = userFirstName.length >= 1 && userFirstName.length < 4;
 
     return (
-        <Grid item xs={12}  style={{ paddingTop: 10 }}>
+        <Grid item xs={12}  style={{ paddingTop: 5 }}>
             <TextField
                 autoComplete="given-name"
                 name="firstName"

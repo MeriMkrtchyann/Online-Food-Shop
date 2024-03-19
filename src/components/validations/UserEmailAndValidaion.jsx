@@ -13,11 +13,7 @@ export default function UserEmailAndValidation({ email , setEmail }){
     let isEmailInvalid = email.length >= 1  && !email.match(emailValidationRegex)
 
     return (
-        <Grid item xs={12}
-            style={{
-                paddingTop: 10
-            }}
-        >
+        <Grid item xs={12} style={{ paddingTop: 5 }}>
             <TextField
                 required
                 fullWidth

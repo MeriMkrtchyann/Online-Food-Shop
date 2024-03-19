@@ -20,7 +20,7 @@ export default function UserLastNameAndValidation({userLastName, setUserLastName
     const isUserLastNameInalid = userLastName.length >= 1 && userLastName.length < 4;
 
     return (
-        <Grid item xs={12} style={{ paddingTop: 10 }}>
+        <Grid item xs={12} style={{ paddingTop: 5 }}>
             <TextField
                  autoComplete="family-name"
                 name="lastName"

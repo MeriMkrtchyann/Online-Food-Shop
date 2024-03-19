@@ -14,11 +14,7 @@ export default function UserCanfirmPasswordAndValidation({password}){
     let isCanfirmPasswordInvalid = canfirmPassword.length >=1 && !(password === canfirmPassword)
 
     return (
-        <Grid item xs={12}
-            style={{
-                paddingTop: 10
-            }}
-        >
+        <Grid item xs={12} style={{ paddingTop: 5 }} >
             <TextField
                 required
                 fullWidth

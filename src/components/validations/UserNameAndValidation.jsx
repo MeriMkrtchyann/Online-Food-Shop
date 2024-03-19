@@ -15,7 +15,7 @@ export default function UserNameAndValidation({userName, setUserName}) {
     const isUserNameInalid = userName.length >= 1 && userName.length < 4;
 
     return (
-        <Grid item xs={12}  style={{ paddingTop: 10 }}>
+        <Grid item xs={12}  style={{ paddingTop: 5 }}>
             <TextField
                 autoComplete="username"
                 name="username"

@@ -19,11 +19,7 @@ export default function UserPhoneAndValidation({contact , setContact}){
     }
 
     return (
-        <Grid item xs={12}
-            style={{
-                paddingTop: 10
-            }}
-        >
+        <Grid item xs={12} style={{ paddingTop: 5 }}>
             <input type="hidden" name="contact" value={contact} />
             <TextField
                 required

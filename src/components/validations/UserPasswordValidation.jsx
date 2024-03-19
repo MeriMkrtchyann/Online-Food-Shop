@@ -13,11 +13,7 @@ export default function UserPasswordValidation({password, setPassword}){
     let isPasswordInvalid = password.length>=1 && password.length <= 7  && !password.match(passwordValidationRegex);
 
     return (
-        <Grid item xs={12}
-            style={{
-                paddingTop: 10
-            }}
-        >
+        <Grid item xs={12} style={{ paddingTop: 5 }}>
             <TextField
                 required
                 fullWidth
@@ -32,11 +28,11 @@ export default function UserPasswordValidation({password, setPassword}){
             />
              {isPasswordInvalid ? (
                 <FormHelperText error>
-                    Please enter a password with at least 7 characters (uppercase,  lowercase, number, simbold)
+                    Please enter a password with at least 7 characters (uppercase,  lowercase, number, simbol)
                 </FormHelperText>
             ) : (
                 <FormHelperText>
-                    Please enter a password with at least 7 characters (uppercase, lowercase, number, special, simbold)
+                    Please enter a password with at least 7 characters (uppercase, lowercase, number, simbol)
                 </FormHelperText>
             ) }
         </Grid>
