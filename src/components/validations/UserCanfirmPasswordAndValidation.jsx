@@ -31,9 +31,13 @@ export default function UserCanfirmPasswordAndValidation({password}){
                 value={canfirmPassword}
                 onChange={handlecanfirmPasswordChange}
             />
-            {isCanfirmPasswordInvalid && (
+            {isCanfirmPasswordInvalid ? (
                 <FormHelperText error>
                 Password confirmation must match the original password..
+                </FormHelperText>
+            ) : (
+                <FormHelperText >
+                Please confirm your password
                 </FormHelperText>
             )}
         </Grid>
