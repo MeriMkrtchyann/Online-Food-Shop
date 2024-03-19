@@ -61,10 +61,10 @@ export function SignUpPage() {
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
-              height: "100vh",
+              height: "100%",
             }}
             sx={{ 
-                height: '100vh', 
+              
                 display: 'flex', 
                 justifyContent: 'center', 
                 alignItems: 'center', 
@@ -78,6 +78,8 @@ export function SignUpPage() {
                   background: "white",
                   borderRadius: "15px",
                   boxShadow: '2px 4px 4px rgba(157, 154, 161, 1)',
+                  marginTop: "20px",
+                  marginBottom: "20px",
               }}>
               <Container component="main" >
             <CssBaseline />

@@ -20,7 +20,7 @@ export default function UserLastNameAndValidation({userLastName, setUserLastName
     const isUserLastNameInalid = userLastName.length >= 1 && userLastName.length < 4;
 
     return (
-        <Grid item xs={12} sm={6} style={{ paddingTop: 10 }}>
+        <Grid item xs={12} style={{ paddingTop: 10 }}>
             <TextField
                  autoComplete="family-name"
                 name="lastName"
@@ -33,9 +33,13 @@ export default function UserLastNameAndValidation({userLastName, setUserLastName
                 onChange={handleUserLastNameChange}
                 error={isUserLastNameInalid}
             />
-            {isUserLastNameInalid && (
-                <FormHelperText error>
-                    Last name  must be at least 3 characters long..
+            {isUserLastNameInalid ? (
+                <FormHelperText error >
+                    Last name  must be at least 4 characters long..
+                </FormHelperText>
+            ): (
+                <FormHelperText >
+                    Last name  must be at least 4 characters long..
                 </FormHelperText>
             )}
         </Grid>

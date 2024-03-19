@@ -27,8 +27,12 @@ export default function UserNameAndValidation({userName, setUserName}) {
                 value={userName}
                 onChange={handleUserLastNameChange}
             />
-             {isUserNameInalid && (
+             {isUserNameInalid ? (
                 <FormHelperText error>
+                    Username name must be at least 4 characters long..
+                </FormHelperText>
+            ):(
+                <FormHelperText >
                     Username name must be at least 4 characters long..
                 </FormHelperText>
             )}

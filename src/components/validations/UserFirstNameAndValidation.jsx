@@ -19,7 +19,7 @@ export default function UserFirstNameAndValidation({userFirstName, setUserFirstN
     const isUserNameInvalid = userFirstName.length >= 1 && userFirstName.length < 4;
 
     return (
-        <Grid item xs={12} sm={6} style={{ paddingTop: 10 }}>
+        <Grid item xs={12}  style={{ paddingTop: 10 }}>
             <TextField
                 autoComplete="given-name"
                 name="firstName"
@@ -32,11 +32,16 @@ export default function UserFirstNameAndValidation({userFirstName, setUserFirstN
                 onChange={handleUserNameChange}
                 error={isUserNameInvalid}
             />
-             {isUserNameInvalid && (
+             {isUserNameInvalid ? (
                 <FormHelperText error>
                     First name must be at least 4 characters long..
                 </FormHelperText>
-            )}
+            ) : (
+                <FormHelperText >
+                    First name must be at least 4 characters long..
+                </FormHelperText>
+            ) 
+            }
         </Grid>
     );
 }

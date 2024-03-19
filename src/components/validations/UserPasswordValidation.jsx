@@ -30,11 +30,15 @@ export default function UserPasswordValidation({password, setPassword}){
                 value={password}
                 onChange={handlePasswordChange}
             />
-             {isPasswordInvalid && (
+             {isPasswordInvalid ? (
                 <FormHelperText error>
-                Password must be at least 8 characters long contain at least one uppercase letter, one lowercase letter, one number, and one special character.
+                    Please enter a password with at least 7 characters (uppercase,  lowercase, number, simbold)
                 </FormHelperText>
-            )}
+            ) : (
+                <FormHelperText>
+                    Please enter a password with at least 7 characters (uppercase, lowercase, number, special, simbold)
+                </FormHelperText>
+            ) }
         </Grid>
     )
 }
