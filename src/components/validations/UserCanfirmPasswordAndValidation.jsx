@@ -26,6 +26,7 @@ export default function UserCanfirmPasswordAndValidation({password}){
                 valueemail
                 value={canfirmPassword}
                 onChange={handlecanfirmPasswordChange}
+                error={isCanfirmPasswordInvalid}
             />
             {isCanfirmPasswordInvalid ? (
                 <FormHelperText error>

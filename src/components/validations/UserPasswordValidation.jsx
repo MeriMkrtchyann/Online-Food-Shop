@@ -25,6 +25,7 @@ export default function UserPasswordValidation({password, setPassword}){
                 valueemail
                 value={password}
                 onChange={handlePasswordChange}
+                error={isPasswordInvalid}
             />
              {isPasswordInvalid ? (
                 <FormHelperText error>

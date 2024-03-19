@@ -41,9 +41,8 @@ export function SignUpPage() {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
       if (user) {
-        await sendEmailVerification(userCredential.user) // Отправить письмо с подтверждением
+        await sendEmailVerification(userCredential.user) 
         console.log("Email verification sent");
-        // Redirect or show message to user indicating email verification sent
       } else {
         setError("Failed to create user");
       }
@@ -64,10 +63,9 @@ export function SignUpPage() {
               height: "100%",
             }}
             sx={{ 
-              
-                display: 'flex', 
-                justifyContent: 'center', 
-                alignItems: 'center', 
+              display: 'flex', 
+              justifyContent: 'center', 
+              alignItems: 'center', 
             }}
           >
           <Link to="/" className="backButton">

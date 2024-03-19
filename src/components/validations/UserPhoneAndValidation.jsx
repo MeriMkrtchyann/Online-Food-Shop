@@ -31,6 +31,7 @@ export default function UserPhoneAndValidation({contact , setContact}){
                 autoComplete="contact"
                 value={`(+374) ${contact}`}
                 onChange={handleContactChange}
+                error={isUserNameInvalid}
             />
             {isUserNameInvalid ? (
                 <FormHelperText error>

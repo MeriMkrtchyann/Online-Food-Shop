@@ -25,6 +25,7 @@ export default function UserEmailAndValidation({ email , setEmail }){
                 valueemail
                 value={email}
                 onChange={handleEmailChange}
+                error={isEmailInvalid}
             />
             {isEmailInvalid ? (
                 <FormHelperText error>

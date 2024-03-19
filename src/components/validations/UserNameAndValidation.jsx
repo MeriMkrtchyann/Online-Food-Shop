@@ -26,6 +26,7 @@ export default function UserNameAndValidation({userName, setUserName}) {
                 autoFocus
                 value={userName}
                 onChange={handleUserLastNameChange}
+                error={isUserNameInalid}
             />
              {isUserNameInalid ? (
                 <FormHelperText error>

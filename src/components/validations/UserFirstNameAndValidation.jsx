@@ -40,8 +40,7 @@ export default function UserFirstNameAndValidation({userFirstName, setUserFirstN
                 <FormHelperText >
                     First name must be at least 4 characters long..
                 </FormHelperText>
-            ) 
-            }
+            )}
         </Grid>
     );
 }
