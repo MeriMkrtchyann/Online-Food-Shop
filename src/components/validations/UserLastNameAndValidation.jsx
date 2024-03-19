@@ -1,7 +1,7 @@
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
-import { ValidOrInvalid } from '../icons/Icons';
+import FormHelperText from '@mui/material/FormHelperText';
 
 export default function UserLastNameAndValidation({userLastName, setUserLastName}) {
 
@@ -17,7 +17,6 @@ export default function UserLastNameAndValidation({userLastName, setUserLastName
         }
     };
 
-    const isUserLastNameValid = userLastName.length > 3 
     const isUserLastNameInalid = userLastName.length >= 1 && userLastName.length < 4;
 
     return (
@@ -32,10 +31,13 @@ export default function UserLastNameAndValidation({userLastName, setUserLastName
                 autoFocus
                 value={userLastName}
                 onChange={handleUserLastNameChange}
-                InputProps={{
-                    endAdornment: <ValidOrInvalid isValid={isUserLastNameValid} isInvalid={isUserLastNameInalid} />
-                }}
+                error={isUserLastNameInalid}
             />
+            {isUserLastNameInalid && (
+                <FormHelperText error>
+                    Last name  must be at least 3 characters long..
+                </FormHelperText>
+            )}
         </Grid>
     );
 }

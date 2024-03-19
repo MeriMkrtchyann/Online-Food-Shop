@@ -1,7 +1,7 @@
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
-import { ValidOrInvalid } from '../icons/Icons';
+import FormHelperText from '@mui/material/FormHelperText';
 
 export default function UserPasswordValidation({password, setPassword}){
 
@@ -10,8 +10,7 @@ export default function UserPasswordValidation({password, setPassword}){
     }
     
     const passwordValidationRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[\w@$!%*?&.\\]{8,}$/;
-    let isPasswordValid = password.match(passwordValidationRegex);
-    let isPasswordInvalid = password.length && !isPasswordValid;
+    let isPasswordInvalid = password.length>=1 && password.length <= 7  && !password.match(passwordValidationRegex);
 
     return (
         <Grid item xs={12}
@@ -30,10 +29,12 @@ export default function UserPasswordValidation({password, setPassword}){
                 valueemail
                 value={password}
                 onChange={handlePasswordChange}
-                InputProps={{
-                    endAdornment: <ValidOrInvalid isValid={isPasswordValid} isInvalid={isPasswordInvalid} />
-                }}
             />
+             {isPasswordInvalid && (
+                <FormHelperText error>
+                Password must be at least 8 characters long contain at least one uppercase letter, one lowercase letter, one number, and one special character.
+                </FormHelperText>
+            )}
         </Grid>
     )
 }

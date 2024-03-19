@@ -1,7 +1,7 @@
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
-import { ValidOrInvalid } from '../icons/Icons';
+import FormHelperText from '@mui/material/FormHelperText';
 
 export default function UserCanfirmPasswordAndValidation({password}){
 
@@ -11,8 +11,7 @@ export default function UserCanfirmPasswordAndValidation({password}){
         setCanfirmPassword(event.target.value)
     }
     
-    let isCanfirmPasswordValid = password  && password === canfirmPassword 
-    let isCanfirmPasswordInvalid = !(password === canfirmPassword)
+    let isCanfirmPasswordInvalid = canfirmPassword.length >=1 && !(password === canfirmPassword)
 
     return (
         <Grid item xs={12}
@@ -31,10 +30,12 @@ export default function UserCanfirmPasswordAndValidation({password}){
                 valueemail
                 value={canfirmPassword}
                 onChange={handlecanfirmPasswordChange}
-                InputProps={{
-                    endAdornment: <ValidOrInvalid isValid={isCanfirmPasswordValid} isInvalid={isCanfirmPasswordInvalid} />
-                }}
             />
+            {isCanfirmPasswordInvalid && (
+                <FormHelperText error>
+                Password confirmation must match the original password..
+                </FormHelperText>
+            )}
         </Grid>
     )
 }

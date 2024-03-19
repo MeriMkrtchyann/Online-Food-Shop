@@ -1,12 +1,11 @@
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
-import { ValidOrInvalid } from '../icons/Icons';
+import FormHelperText from '@mui/material/FormHelperText';
 
 export default function UserPhoneAndValidation({contact , setContact}){
 
-    const isUserNameValid = contact.length > 7 
-    const isUserNameInvalid = contact.length && contact.length < 8;
+    const isUserNameInvalid = contact.length >= 1 && contact.length < 8;
 
     const handleContactChange  = ( event ) => {
       console.log(event.target.value.slice(6,))
@@ -36,10 +35,13 @@ export default function UserPhoneAndValidation({contact , setContact}){
                 autoComplete="contact"
                 value={`(+374) ${contact}`}
                 onChange={handleContactChange}
-                InputProps={{
-                    endAdornment: <ValidOrInvalid isValid={isUserNameValid} isInvalid={isUserNameInvalid} />
-                }}
             />
+            {isUserNameInvalid && (
+                <FormHelperText error>
+                    Please enter a valid phone number.
+                </FormHelperText>
+            )}
+            
         </Grid>
     )
 }

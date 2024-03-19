@@ -1,7 +1,7 @@
 import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
-import { ValidOrInvalid } from '../icons/Icons';
+import FormHelperText from '@mui/material/FormHelperText';
 
 export default function UserFirstNameAndValidation({userFirstName, setUserFirstName}) {
     
@@ -10,14 +10,12 @@ export default function UserFirstNameAndValidation({userFirstName, setUserFirstN
         const onlyLettersRegex = /^[a-zA-Z]+$/
         if (!input.length ){
             setUserFirstName("")
-        }
-        if (input.length < 15 && input.match(onlyLettersRegex)){
+        }else if (input.length < 15 && input.match(onlyLettersRegex)){
             const formattedFirstName = input.charAt(0).toUpperCase() + input.slice(1).toLowerCase(); 
             setUserFirstName(formattedFirstName);
         }
     };
 
-    const isUserNameValid = userFirstName.length > 3;
     const isUserNameInvalid = userFirstName.length >= 1 && userFirstName.length < 4;
 
     return (
@@ -32,10 +30,13 @@ export default function UserFirstNameAndValidation({userFirstName, setUserFirstN
                 autoFocus
                 value={userFirstName}
                 onChange={handleUserNameChange}
-                InputProps={{
-                    endAdornment: <ValidOrInvalid isValid={isUserNameValid} isInvalid={isUserNameInvalid} />
-                }}
+                error={isUserNameInvalid}
             />
+             {isUserNameInvalid && (
+                <FormHelperText error>
+                    First name must be at least 4 characters long..
+                </FormHelperText>
+            )}
         </Grid>
     );
 }

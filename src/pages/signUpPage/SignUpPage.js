@@ -25,6 +25,7 @@ import { auth } from "../../firebase/firebase"
 const defaultTheme = createTheme();
 
 export function SignUpPage() {
+
   const [userFirstName, setUserFirstName] = React.useState('');
   const [userLastName, setUserLastName] = React.useState('');
   const [userName, setUserName] = React.useState('');
@@ -105,7 +106,7 @@ export function SignUpPage() {
                     <FormControlLabel
                       control={<Checkbox value="allowExtraEmails" color="primary" />}
                       label="I want to receive inspiration, marketing promotions and updates via email."
-                    />
+                  />
                   </Grid>
                 </Grid>
                 <Button
