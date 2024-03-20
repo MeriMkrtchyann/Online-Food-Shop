@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import FormHelperText from '@mui/material/FormHelperText';
 
-const UserFirstNameAndValidation = ({aboutUser, aboutUserFirstName, setObj }) => {
+const UserFirstNameAndValidation = ({aboutUser, aboutUserFirstName, setAboutUser }) => {
   
   const [userFirstName, setUserFirstName] = React.useState("");
   const isUserNameInvalid = userFirstName.length >= 1 && userFirstName.length < 4;
@@ -17,17 +17,17 @@ const UserFirstNameAndValidation = ({aboutUser, aboutUserFirstName, setObj }) =>
       const formattedName = input.charAt(0).toUpperCase() + input.slice(1).toLowerCase();
       setUserFirstName(formattedName);
       if (userFirstName.length > 3) {
-        setObj({
+        setAboutUser({
           ...aboutUser ,
-          aboutUserFirstName : {
+          [aboutUserFirstName] : {
             userFirstName : formattedName,
             valid: true
           }
       })
       } else {
-        setObj({
+        setAboutUser({
             ...aboutUser ,
-            aboutUserFirstName : {
+            [aboutUserFirstName] : {
               userFirstName : formattedName,
               valid: false
             }

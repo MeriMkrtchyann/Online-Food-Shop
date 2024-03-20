@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import FormHelperText from '@mui/material/FormHelperText';
 
-export default function UserLastNameAndValidation({aboutUser, aboutUserLastName, setObj}) {
+export default function UserLastNameAndValidation({aboutUser, aboutUserLastName, setAboutUser}) {
     
     const [userLastName, setUserLastName] = React.useState('');
     const isUserLastNameInalid = userLastName.length >= 1 && userLastName.length < 4;
@@ -17,17 +17,17 @@ export default function UserLastNameAndValidation({aboutUser, aboutUserLastName,
           const formattedName = input.charAt(0).toUpperCase() + input.slice(1).toLowerCase();
           setUserLastName(formattedName);
           if (userLastName.length > 3) {
-            setObj({
+            setAboutUser({
               ...aboutUser ,
-              aboutUserLastName : {
+              [aboutUserLastName] : {
                 userLastName : formattedName,
                 valid: true
               }
           })
           } else {
-            setObj({
+            setAboutUser({
                 ...aboutUser ,
-                aboutUserLastName : {
+                [aboutUserLastName] : {
                   userLastName : formattedName,
                   valid: false
                 }

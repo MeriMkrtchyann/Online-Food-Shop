@@ -37,7 +37,7 @@ export function SignUpPage() {
   })
 
   React.useEffect(()=>{
-    console.log("useEffect",JSON.stringify(obj))
+    console.log("useEffect",JSON.stringify(aboutUser))
   })
 
   // const handleRegistration = async (event) => {
@@ -102,18 +102,13 @@ export function SignUpPage() {
                 <Grid container spacing={2}>
                   <UserFirstNameAndValidation aboutUser={aboutUser} aboutUserFirstName={aboutUser.aboutUserFirstName} setAboutUser={setAboutUser}/>
                   <UserLastNameAndValidation aboutUser={aboutUser} aboutUserLastName={aboutUser.aboutUserLastName} setAboutUser={setAboutUser}/>
-                  <UserNameAndValidation aboutUser={aboutUser} aboutUserName={aboutUser.aboutUserName} setAboutUser={setAboutUser}/>
-                  <UserEmailAndValidation aboutUser={aboutUser} aboutUserEmail={aboutUser.aboutUserEmail} setAboutUser={setAboutUser} />
-                  <UserPhoneAndValidation aboutUser={aboutUser} aboutUserPhom={aboutUser.aboutUserPhome} setAboutUser={setAboutUser}/>
-                  <UserAddresAndValidation aboutUser={aboutUser} aboutUserAddres={aboutUser.aboutUserAddres} setAboutUser={setAboutUser}/>
-                  <UserPasswordValidation aboutUser={aboutUser} aboutUserPassword={aboutUser.aboutUserPassword} setAboutUser={setAboutUser}/>
-                  <UserCanfirmPasswordAndValidation aboutUser={aboutUser} userCanfirmPassword={aboutUser.userCanfirmPassword} setAboutUser={setAboutUser} password={aboutUser.password}/> 
-                  {/*
-                  
+                  {/* <UserNameAndValidation aboutUser={aboutUser} aboutUserName={aboutUser.aboutUserName} setAboutUser={setAboutUser}/> */}
+                  {/* <UserEmailAndValidation aboutUser={aboutUser} aboutUserEmail={aboutUser.aboutUserEmail} setAboutUser={setAboutUser} /> */}
+                  {/* <UserPhoneAndValidation aboutUser={aboutUser} aboutUserPhom={aboutUser.aboutUserPhome} setAboutUser={setAboutUser}/> */}
+                  {/* <UserAddresAndValidation aboutUser={aboutUser} aboutUserAddres={aboutUser.aboutUserAddres} setAboutUser={setAboutUser}/> */}
+                  {/* <UserPasswordValidation aboutUser={aboutUser} aboutUserPassword={aboutUser.aboutUserPassword} setAboutUser={setAboutUser}/> */}
+                  {/* <UserCanfirmPasswordAndValidation aboutUser={aboutUser} userCanfirmPassword={aboutUser.userCanfirmPassword} setAboutUser={setAboutUser} password={aboutUser.password}/>  */} */}
                 
-                  
-                  
-                  <UserCanfirmPasswordAndValidation  password={password}/> */}
                   <Grid item xs={12}>
                     <FormControlLabel
                       control={<Checkbox value="allowExtraEmails" color="primary" />}
