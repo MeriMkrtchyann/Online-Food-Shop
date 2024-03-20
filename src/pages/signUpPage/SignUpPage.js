@@ -33,13 +33,17 @@ export function SignUpPage() {
     aboutUserEmail : {},
     aboutUserPhome : {},
     aboutUserAddres : {},
-    aboutUserPassword : {},
+    aboutUserPassword : {
+      value : ""
+    },
     aboutUserCanfirmPassword : {}
   })
 
   React.useEffect(()=>{
     console.log("useEffect",JSON.stringify(aboutUser))
   })
+
+  const [password , setPassword] = React.useState(aboutUser.aboutUserPassword.value)
 
   // const handleRegistration = async (event) => {
   //   event.preventDefault();
@@ -107,8 +111,8 @@ export function SignUpPage() {
                   <UserEmailAndValidation aboutUser={aboutUser} aboutUserEmail={aboutUser.aboutUserEmail} setAboutUser={setAboutUser} />
                   <UserPhoneAndValidation aboutUser={aboutUser} aboutUserPhom={aboutUser.aboutUserPhome} setAboutUser={setAboutUser}/>
                   <UserAddresAndValidation aboutUser={aboutUser} aboutUserAddres={aboutUser.aboutUserAddres} setAboutUser={setAboutUser}/>
-                  <UserPasswordValidation aboutUser={aboutUser} aboutUserPassword={aboutUser.aboutUserPassword} setAboutUser={setAboutUser}/>
-                  <UserCanfirmPasswordAndValidation  aboutUser={aboutUser} aboutCserCanfirmPassword={aboutUser.aboutUserCanfirmPassword} setAboutUser={setAboutUser}/> 
+                  <UserPasswordValidation aboutUser={aboutUser} aboutUserPassword={aboutUser.aboutUserPassword} setAboutUser={setAboutUser} password={password} setPassword={setPassword}/>
+                  <UserCanfirmPasswordAndValidation  password={password} aboutUser={aboutUser} aboutCserCanfirmPassword={aboutUser.aboutUserCanfirmPassword} setAboutUser={setAboutUser}/> 
                 
                   <Grid item xs={12}>
                     <FormControlLabel
