@@ -33,9 +33,7 @@ export function SignUpPage() {
     aboutUserEmail : {},
     aboutUserPhome : {},
     aboutUserAddres : {},
-    aboutUserPassword : {
-      value : ""
-    },
+    aboutUserPassword : {value : ""},
     aboutUserCanfirmPassword : {}
   })
 
@@ -44,23 +42,24 @@ export function SignUpPage() {
   })
 
   const [password , setPassword] = React.useState(aboutUser.aboutUserPassword.value)
+  const [error, setError] = React.useState("")
 
-  // const handleRegistration = async (event) => {
-  //   event.preventDefault();
-  //   try {
-  //     const userCredential = await createUserWithEmailAndPassword(auth, obj.aboutUserEmail.email, password);
-  //     const user = userCredential.user;
-  //     if (user) {
-  //       await sendEmailVerification(userCredential.user) 
-  //       console.log("Email verification sent");
-  //     } else {
-  //       setError("Failed to create user");
-  //     }
-  //   } catch (error) {
-  //     console.error('Ошибка при регистрации:', error.message);
-  //     setError(error.message);
-  //   }
-  // };
+  const handleRegistration = async (event) => {
+    event.preventDefault();
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, aboutUser.aboutUserEmail.email, password);
+      const user = userCredential.user;
+      if (user) {
+        await sendEmailVerification(userCredential.user) 
+        console.log("Email verification sent");
+      } else {
+        setError("Failed to create user");
+      }
+    } catch (error) {
+      console.error('Ошибка при регистрации:', error.message);
+      setError(error.message);
+    }
+  };
  
   return (
     <ThemeProvider theme={defaultTheme} >
@@ -102,8 +101,7 @@ export function SignUpPage() {
               <Typography component="h1" variant="h5">
                 Sign up
               </Typography>
-              {/* <Box component="form" noValidate onSubmit={handleRegistration} sx={{ mt: 3 }}> */} 
-              <Box component="form" noValidate sx={{ mt: 3 }}>
+              <Box component="form" noValidate onSubmit={handleRegistration} sx={{ mt: 3 }}>
                 <Grid container spacing={2}>
                   <UserFirstNameAndValidation aboutUser={aboutUser} aboutUserFirstName={aboutUser.aboutUserFirstName} setAboutUser={setAboutUser}/>
                   <UserLastNameAndValidation aboutUser={aboutUser} aboutUserLastName={aboutUser.aboutUserLastName} setAboutUser={setAboutUser}/>
@@ -113,7 +111,6 @@ export function SignUpPage() {
                   <UserAddresAndValidation aboutUser={aboutUser} aboutUserAddres={aboutUser.aboutUserAddres} setAboutUser={setAboutUser}/>
                   <UserPasswordValidation aboutUser={aboutUser} aboutUserPassword={aboutUser.aboutUserPassword} setAboutUser={setAboutUser} password={password} setPassword={setPassword}/>
                   <UserCanfirmPasswordAndValidation  password={password} aboutUser={aboutUser} aboutCserCanfirmPassword={aboutUser.aboutUserCanfirmPassword} setAboutUser={setAboutUser}/> 
-                
                   <Grid item xs={12}>
                     <FormControlLabel
                       control={<Checkbox value="allowExtraEmails" color="primary" />}
