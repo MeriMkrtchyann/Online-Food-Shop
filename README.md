@@ -1,6 +1,6 @@
 <a id='top'></a>
 
-# Online-Food-Shop(Project is in process yet!)
+# Online-Food-Shop (Project is in process yet!)
 This is an online food court, that must help users for finding very tasty and varius meals very quickly and easy.
 
 This will be main platform for a food court, that wants to collect customers and provide services quickly and efficiently․
