@@ -3,13 +3,13 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import FormHelperText from '@mui/material/FormHelperText';
 
-export default function UserAddresAndValidation({aboutUser , aboutUserAddres , setObj}){
+export default function UserAddresAndValidation({aboutUser , aboutUserAddres , setAboutUser}){
 
     const [addres , setAddres] = React.useState("")
 
     const handleAddresChange  = ( event ) => {
         setAddres(event.target.value)
-        setObj({
+        setAboutUser({
             ...aboutUser ,
             [aboutUserAddres]: {
               value : addres,
