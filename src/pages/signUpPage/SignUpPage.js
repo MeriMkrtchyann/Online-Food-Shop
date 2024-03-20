@@ -102,7 +102,7 @@ export function SignUpPage() {
                 <Grid container spacing={2}>
                   <UserFirstNameAndValidation aboutUser={aboutUser} aboutUserFirstName={aboutUser.aboutUserFirstName} setAboutUser={setAboutUser}/>
                   <UserLastNameAndValidation aboutUser={aboutUser} aboutUserLastName={aboutUser.aboutUserLastName} setAboutUser={setAboutUser}/>
-                  {/* <UserNameAndValidation aboutUser={aboutUser} aboutUserName={aboutUser.aboutUserName} setAboutUser={setAboutUser}/> */}
+                  <UserNameAndValidation aboutUser={aboutUser} aboutUserName={aboutUser.aboutUserName} setAboutUser={setAboutUser}/>
                   {/* <UserEmailAndValidation aboutUser={aboutUser} aboutUserEmail={aboutUser.aboutUserEmail} setAboutUser={setAboutUser} /> */}
                   {/* <UserPhoneAndValidation aboutUser={aboutUser} aboutUserPhom={aboutUser.aboutUserPhome} setAboutUser={setAboutUser}/> */}
                   {/* <UserAddresAndValidation aboutUser={aboutUser} aboutUserAddres={aboutUser.aboutUserAddres} setAboutUser={setAboutUser}/> */}
