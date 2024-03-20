@@ -16,10 +16,10 @@ Project is in process yet!
 ## To run this application follow these steps
 
 1. **Clone this repository:**
-   git clone [https://github.com/manevardazaryan1/AMMA-Track]
+   git clone [https://github.com/MeriMkrtchyann/Online-Food-Shop.git]
 
 2. **Navigate to the project directory:**
-    cd amma-track-app
+    cd Online-Food-Shop
 
 3. **Install dependencies:**
     npm install
