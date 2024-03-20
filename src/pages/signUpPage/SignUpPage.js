@@ -26,13 +26,14 @@ const defaultTheme = createTheme();
 
 export function SignUpPage() {
 
-  const [obj , setObj] = React.useState({
+  const [aboutUser , setAboutUser] = React.useState({
     aboutUserFirstName : {},
     aboutUserLastName : {},
     aboutUserName : {},
     aboutUserEmail : {},
     aboutUserPhome : {},
     aboutUserAddres : {},
+    userCanfirmPassword : {}
   })
 
   React.useEffect(()=>{
@@ -99,13 +100,14 @@ export function SignUpPage() {
               {/* <Box component="form" noValidate onSubmit={handleRegistration} sx={{ mt: 3 }}> */} 
               <Box component="form" noValidate sx={{ mt: 3 }}>
                 <Grid container spacing={2}>
-                  <UserFirstNameAndValidation aboutUser={obj} aboutUserFirstName={obj.aboutUserFirstName} setObj={setObj}/>
-                  <UserLastNameAndValidation aboutUser={obj} aboutUserLastName={obj.aboutUserLastName} setObj={setObj}/>
-                  <UserNameAndValidation aboutUser={obj} aboutUserName={obj.aboutUserName} setObj={setObj}/>
-                  <UserEmailAndValidation aboutUser={obj} aboutUserEmail={obj.aboutUserEmail} setObj={setObj} />
-                  <UserPhoneAndValidation aboutUser={obj} aboutUserPhom={obj.aboutUserPhome} setObj={setObj}/>
-                  <UserAddresAndValidation aboutUser={obj} aboutUserAddres={obj.aboutUserAddres} setObj={setObj}/>
-                  <UserPasswordValidation aboutUser={obj} aboutUserPassword={obj.aboutUserPassword} setObj={setObj}/>
+                  <UserFirstNameAndValidation aboutUser={aboutUser} aboutUserFirstName={aboutUser.aboutUserFirstName} setAboutUser={setAboutUser}/>
+                  <UserLastNameAndValidation aboutUser={aboutUser} aboutUserLastName={aboutUser.aboutUserLastName} setAboutUser={setAboutUser}/>
+                  <UserNameAndValidation aboutUser={aboutUser} aboutUserName={aboutUser.aboutUserName} setAboutUser={setAboutUser}/>
+                  <UserEmailAndValidation aboutUser={aboutUser} aboutUserEmail={aboutUser.aboutUserEmail} setAboutUser={setAboutUser} />
+                  <UserPhoneAndValidation aboutUser={aboutUser} aboutUserPhom={aboutUser.aboutUserPhome} setAboutUser={setAboutUser}/>
+                  <UserAddresAndValidation aboutUser={aboutUser} aboutUserAddres={aboutUser.aboutUserAddres} setAboutUser={setAboutUser}/>
+                  <UserPasswordValidation aboutUser={aboutUser} aboutUserPassword={aboutUser.aboutUserPassword} setAboutUser={setAboutUser}/>
+                  <UserCanfirmPasswordAndValidation aboutUser={aboutUser} userCanfirmPassword={aboutUser.userCanfirmPassword} setAboutUser={setAboutUser} password={aboutUser.password}/> 
                   {/*
                   
                 
