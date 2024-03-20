@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+.nav {
+    display: flex;
+    align-items : center;
+    justify-content : space-between;
+    height : 65px;
+    width : 100%;
+    background-color : black;
+    color: white;
+    padding: 0 50px;
+    position: fixed;
+}
+
+.container{
+    display: flex;
+    height : 65px;
+    justify-content : flex-start;
+}
+
+@media screen and (max-width: 1000px) {
+    .container{
+        display: flex;
+        width : 50%;
+        justify-content : space-between;
+    }
+}

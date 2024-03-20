@@ -1,0 +1,20 @@
+.user {
+    margin-left:80px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.fa-user {
+    color : white;
+}
+
+.user :hover {
+    color : #9f9f9f;;
+}
+
+@media screen and (max-width: 900px){
+    .user {
+        margin-left:30px;
+    }
+}
