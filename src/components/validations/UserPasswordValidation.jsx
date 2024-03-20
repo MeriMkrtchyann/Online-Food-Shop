@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import FormHelperText from '@mui/material/FormHelperText';
 
-export default function UserPasswordValidation({aboutUserPassword, aboutUser, setObj }){
+export default function UserPasswordValidation({aboutUserPassword, aboutUser, setAboutUser }){
 
     const [password , setPassword] = React.useState("")
     const passwordValidationRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[\w@$!%*?&.\\]{8,}$/;
@@ -12,7 +12,7 @@ export default function UserPasswordValidation({aboutUserPassword, aboutUser, se
     const handlePasswordChange  = ( event ) => {
         setPassword(event.target.value)
         if (isPasswordInvalid || password.length < 1) {
-            setObj({
+            setAboutUser({
               ...aboutUser ,
               [aboutUser]: {
                 value : password,
@@ -20,7 +20,7 @@ export default function UserPasswordValidation({aboutUserPassword, aboutUser, se
               }
           })
           } else {
-            setObj({
+            setAboutUser({
                 ...aboutUser ,
                 [aboutUser]: {
                   value : password,

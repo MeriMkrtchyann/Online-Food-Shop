@@ -106,7 +106,7 @@ export function SignUpPage() {
                   <UserEmailAndValidation aboutUser={aboutUser} aboutUserEmail={aboutUser.aboutUserEmail} setAboutUser={setAboutUser} />
                   <UserPhoneAndValidation aboutUser={aboutUser} aboutUserPhom={aboutUser.aboutUserPhome} setAboutUser={setAboutUser}/>
                   <UserAddresAndValidation aboutUser={aboutUser} aboutUserAddres={aboutUser.aboutUserAddres} setAboutUser={setAboutUser}/>
-                  {/* <UserPasswordValidation aboutUser={aboutUser} aboutUserPassword={aboutUser.aboutUserPassword} setAboutUser={setAboutUser}/> */}
+                  <UserPasswordValidation aboutUser={aboutUser} aboutUserPassword={aboutUser.aboutUserPassword} setAboutUser={setAboutUser}/>
                   {/* <UserCanfirmPasswordAndValidation aboutUser={aboutUser} userCanfirmPassword={aboutUser.userCanfirmPassword} setAboutUser={setAboutUser} password={aboutUser.password}/>  */} */}
                 
                   <Grid item xs={12}>
