@@ -26,31 +26,35 @@ const defaultTheme = createTheme();
 
 export function SignUpPage() {
 
-  const [userFirstName, setUserFirstName] = React.useState('');
-  const [userLastName, setUserLastName] = React.useState('');
-  const [userName, setUserName] = React.useState('');
-  const [email, setEmail] = React.useState('');
-  const [contact, setContact] = React.useState('');
-  const [addres, setAddres] = React.useState('');
-  const [password, setPassword] = React.useState('');
-  const [error, setError] = React.useState('');
+  const [obj , setObj] = React.useState({
+    aboutUserFirstName : {},
+    aboutUserLastName : {},
+    aboutUserName : {},
+    aboutUserEmail : {},
+    aboutUserPhome : {},
+    aboutUserAddres : {},
+  })
 
-  const handleRegistration = async (event) => {
-    event.preventDefault();
-    try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      const user = userCredential.user;
-      if (user) {
-        await sendEmailVerification(userCredential.user) 
-        console.log("Email verification sent");
-      } else {
-        setError("Failed to create user");
-      }
-    } catch (error) {
-      console.error('Ошибка при регистрации:', error.message);
-      setError(error.message);
-    }
-  };
+  React.useEffect(()=>{
+    console.log("useEffect",JSON.stringify(obj))
+  })
+
+  // const handleRegistration = async (event) => {
+  //   event.preventDefault();
+  //   try {
+  //     const userCredential = await createUserWithEmailAndPassword(auth, obj.aboutUserEmail.email, password);
+  //     const user = userCredential.user;
+  //     if (user) {
+  //       await sendEmailVerification(userCredential.user) 
+  //       console.log("Email verification sent");
+  //     } else {
+  //       setError("Failed to create user");
+  //     }
+  //   } catch (error) {
+  //     console.error('Ошибка при регистрации:', error.message);
+  //     setError(error.message);
+  //   }
+  // };
  
   return (
     <ThemeProvider theme={defaultTheme} >
@@ -92,16 +96,22 @@ export function SignUpPage() {
               <Typography component="h1" variant="h5">
                 Sign up
               </Typography>
-              <Box component="form" noValidate onSubmit={handleRegistration} sx={{ mt: 3 }}>
+              {/* <Box component="form" noValidate onSubmit={handleRegistration} sx={{ mt: 3 }}> */} 
+              <Box component="form" noValidate sx={{ mt: 3 }}>
                 <Grid container spacing={2}>
-                  <UserFirstNameAndValidation userFirstName={userFirstName} setUserFirstName={setUserFirstName}/>
-                  <UserLastNameAndValidation userLastName={userLastName} setUserLastName={setUserLastName}/>
-                  <UserNameAndValidation userName={userName} setUserName={setUserName}/>
-                  <UserEmailAndValidation email={email} setEmail={setEmail} />
-                  <UserPhoneAndValidation contact={contact} setContact={setContact}/>
-                  <UserAddresAndValidation addres={addres} setAddres={setAddres}/>
-                  <UserPasswordValidation password={password} setPassword={setPassword}/>
-                  <UserCanfirmPasswordAndValidation  password={password}/>
+                  <UserFirstNameAndValidation aboutUser={obj} aboutUserFirstName={obj.aboutUserFirstName} setObj={setObj}/>
+                  <UserLastNameAndValidation aboutUser={obj} aboutUserLastName={obj.aboutUserLastName} setObj={setObj}/>
+                  <UserNameAndValidation aboutUser={obj} aboutUserName={obj.aboutUserName} setObj={setObj}/>
+                  <UserEmailAndValidation aboutUser={obj} aboutUserEmail={obj.aboutUserEmail} setObj={setObj} />
+                  <UserPhoneAndValidation aboutUser={obj} aboutUserPhom={obj.aboutUserPhome} setObj={setObj}/>
+                  <UserAddresAndValidation aboutUser={obj} aboutUserAddres={obj.aboutUserAddres} setObj={setObj}/>
+                  <UserPasswordValidation aboutUser={obj} aboutUserPassword={obj.aboutUserPassword} setObj={setObj}/>
+                  {/*
+                  
+                
+                  
+                  
+                  <UserCanfirmPasswordAndValidation  password={password}/> */}
                   <Grid item xs={12}>
                     <FormControlLabel
                       control={<Checkbox value="allowExtraEmails" color="primary" />}

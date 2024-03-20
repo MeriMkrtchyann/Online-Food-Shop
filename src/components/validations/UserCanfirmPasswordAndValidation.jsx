@@ -3,9 +3,7 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import FormHelperText from '@mui/material/FormHelperText';
 
-export default function UserCanfirmPasswordAndValidation({password}){
-
-    const [ canfirmPassword, setCanfirmPassword] = React.useState("")
+export default function UserCanfirmPasswordAndValidation({password, canfirmPassword, setCanfirmPassword}){
 
     const handlecanfirmPasswordChange  = ( event ) => {
         setCanfirmPassword(event.target.value)
