@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 import FormHelperText from '@mui/material/FormHelperText';
 import { faLinesLeaning } from '@fortawesome/free-solid-svg-icons';
 
-export default function UserEmailAndValidation({aboutUser, aboutUserEmail , setObj }){
+export default function UserEmailAndValidation({aboutUser, aboutUserEmail , setAboutUser }){
 
     const [email, setEmail] = React.useState('');
 
@@ -14,7 +14,7 @@ export default function UserEmailAndValidation({aboutUser, aboutUserEmail , setO
     const handleEmailChange  = ( event ) => {
         setEmail(event.target.value)
         if (isEmailInvalid) {
-            setObj({
+            setAboutUser({
               ...aboutUser ,
               [aboutUserEmail]: {
                 value : email,
@@ -22,7 +22,7 @@ export default function UserEmailAndValidation({aboutUser, aboutUserEmail , setO
               }
           })
           } else {
-            setObj({
+            setAboutUser({
                 ...aboutUser ,
                 [aboutUserEmail]: {
                     value : email,
