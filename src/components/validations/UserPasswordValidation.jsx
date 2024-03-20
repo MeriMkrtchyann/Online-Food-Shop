@@ -7,12 +7,11 @@ export default function UserPasswordValidation({ aboutUser, aboutUserPassword, s
 
     const [password , setPassword] = React.useState("")
     const passwordValidationRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[\w@$!%*?&.\\]{8,}$/;
-    let isPasswordInvalid = (password.length>=1 && password.length <= 7) || !password.match(passwordValidationRegex);
+    let isPasswordInvalid =  !password.match(passwordValidationRegex) && (password.length >= 1 || password.length <= 7)
 
     const handlePasswordChange  = ( event ) => {
             setPassword(event.target.value)
-            console.log(isPasswordInvalid)
-            if (passwordValidationRegex || password.length < 1) {
+            if (isPasswordInvalid ) {
                 setAboutUser({
                   ...aboutUser ,
                   aboutUserPassword: {

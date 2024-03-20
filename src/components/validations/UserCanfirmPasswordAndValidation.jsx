@@ -8,6 +8,7 @@ export default function UserCanfirmPasswordAndValidation({ aboutUserCanfirmPassw
     const [ canfirmPassword, setCanfirmPassword] = React.useState("")
     const {aboutUserPassword}= aboutUser
     const {value : password} = aboutUserPassword
+    console.log(password)
 
     let isCanfirmPasswordInvalid = canfirmPassword.length >=1 && !(aboutUserPassword === canfirmPassword)
 
