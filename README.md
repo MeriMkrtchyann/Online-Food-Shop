@@ -1,6 +1,6 @@
 <a id='top'></a>
 
-# Online-Food-Shop
+# Online-Food-Shop(Project is in process yet!)
 This is an online food court, that must help users for finding very tasty and varius meals very quickly and easy.
 
 This will be main platform for a food court, that wants to collect customers and provide services quickly and efficiently․
@@ -11,7 +11,6 @@ For each person will be personal account, in which they can see their shoppong, 
 
 For saveing info is used firebase.
 
-Project is in process yet!
 
 ## To run this application, you'll need the following software installed on your system:
 
