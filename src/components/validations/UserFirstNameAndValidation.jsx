@@ -6,7 +6,7 @@ import FormHelperText from '@mui/material/FormHelperText';
 const UserFirstNameAndValidation = ({aboutUser, aboutUserFirstName, setAboutUser }) => {
   
   const [userFirstName, setUserFirstName] = React.useState("");
-  const isUserNameInvalid = userFirstName.length >= 1 && userFirstName.length < 4;
+  const isUserNameInvalid = userFirstName.length >= 1 && userFirstName.length < 3;
 
   const handleUserNameChange = (event) => {
     let input = event.target.value;
@@ -19,7 +19,7 @@ const UserFirstNameAndValidation = ({aboutUser, aboutUserFirstName, setAboutUser
       if (userFirstName.length > 3) {
         setAboutUser({
           ...aboutUser ,
-          [aboutUserFirstName] : {
+          aboutUserFirstName : {
             userFirstName : formattedName,
             valid: true
           }
@@ -27,7 +27,7 @@ const UserFirstNameAndValidation = ({aboutUser, aboutUserFirstName, setAboutUser
       } else {
         setAboutUser({
             ...aboutUser ,
-            [aboutUserFirstName] : {
+            aboutUserFirstName : {
               userFirstName : formattedName,
               valid: false
             }

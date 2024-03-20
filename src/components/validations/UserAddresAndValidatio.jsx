@@ -11,7 +11,7 @@ export default function UserAddresAndValidation({aboutUser , aboutUserAddres , s
         setAddres(event.target.value)
         setAboutUser({
             ...aboutUser ,
-            [aboutUserAddres]: {
+            aboutUserAddres: {
               value : addres,
               valid : true,
             }

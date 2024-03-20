@@ -16,7 +16,7 @@ export default function UserEmailAndValidation({aboutUser, aboutUserEmail , setA
         if (isEmailInvalid || email.length < 1) {
             setAboutUser({
               ...aboutUser ,
-              [aboutUserEmail]: {
+              aboutUserEmail: {
                 value : email,
                 valid : false,
               }
@@ -24,7 +24,7 @@ export default function UserEmailAndValidation({aboutUser, aboutUserEmail , setA
           } else {
             setAboutUser({
                 ...aboutUser ,
-                [aboutUserEmail]: {
+                aboutUserEmail: {
                     value : email,
                     valid : true,
                 }

@@ -6,7 +6,7 @@ import FormHelperText from '@mui/material/FormHelperText';
 export default function UserNameAndValidation({aboutUser, aboutUserName, setAboutUser}) {
 
     const [userName, setUserName] = React.useState('');
-    const isUserNameInalid = userName.length >= 1 && userName.length < 4;
+    const isUserNameInalid = userName.length >= 1 && userName.length < 3;
   
     const handleUserLastNameChange = (event) => {
         const formattedName = event.target.value;
@@ -15,7 +15,7 @@ export default function UserNameAndValidation({aboutUser, aboutUserName, setAbou
             if (userName.length > 3) {
                 setAboutUser({
                   ...aboutUser ,
-                  [aboutUserName] : {
+                  aboutUserName : {
                     userName : formattedName,
                     valid: true
                   }
@@ -23,7 +23,7 @@ export default function UserNameAndValidation({aboutUser, aboutUserName, setAbou
               } else {
                 setAboutUser({
                     ...aboutUser ,
-                    [aboutUserName] : {
+                    aboutUserName : {
                       userName : formattedName,
                       valid: false
                     }

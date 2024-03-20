@@ -3,32 +3,32 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import FormHelperText from '@mui/material/FormHelperText';
 
-export default function UserPasswordValidation({aboutUserPassword, aboutUser, setAboutUser }){
+export default function UserPasswordValidation({ aboutUser, aboutUserPassword, setAboutUser }){
 
     const [password , setPassword] = React.useState("")
     const passwordValidationRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[\w@$!%*?&.\\]{8,}$/;
-    let isPasswordInvalid = password.length>=1 && password.length <= 7  && !password.match(passwordValidationRegex);
+    let isPasswordInvalid = (password.length>=1 && password.length <= 7) || !password.match(passwordValidationRegex);
 
     const handlePasswordChange  = ( event ) => {
-        setPassword(event.target.value)
-        if (isPasswordInvalid || password.length < 1) {
-            setAboutUser({
-              ...aboutUser ,
-              [aboutUser]: {
-                value : password,
-                valid : false,
-              }
-          })
-          } else {
-            setAboutUser({
-                ...aboutUser ,
-                [aboutUser]: {
-                  value : password,
-                  valid : true,
-                }
-            })
-          }
-
+            setPassword(event.target.value)
+            console.log(isPasswordInvalid)
+            if (passwordValidationRegex || password.length < 1) {
+                setAboutUser({
+                  ...aboutUser ,
+                  aboutUserPassword: {
+                    value : password,
+                    valid : false,
+                  }
+              })
+            } else {
+                setAboutUser({
+                    ...aboutUser ,
+                    aboutUserPassword: {
+                        value : password,
+                        valid : true,
+                    }
+                })
+            }
     }
    
     return (

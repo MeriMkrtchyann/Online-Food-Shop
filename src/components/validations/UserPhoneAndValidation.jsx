@@ -18,7 +18,7 @@ export default function UserPhoneAndValidation({aboutUser, aboutUserPhome , setA
         if (isUserPhoneInvalid || number.length < 4) {
             setAboutUser({
               ...aboutUser ,
-              [aboutUserPhome]: {
+              aboutUserPhome: {
                 value : `+374${phone}`,
                 valid : false,
               }
@@ -26,7 +26,7 @@ export default function UserPhoneAndValidation({aboutUser, aboutUserPhome , setA
           } else {
             setAboutUser({
                 ...aboutUser ,
-                [aboutUserPhome]: {
+                aboutUserPhome: {
                     value : `+374${phone}`,
                     valid : true,
                 }
