@@ -37,9 +37,11 @@ export function SignUpPage() {
     aboutUserCanfirmPassword : {}
   })
 
-  React.useEffect(()=>{
-    console.log("useEffect",JSON.stringify(aboutUser))
-  })
+  // React.useEffect(()=>{
+  //   console.log("useEffect",JSON.stringify(aboutUser))
+  // })
+
+  console.log(JSON.stringify(aboutUser))
 
   const [password , setPassword] = React.useState(aboutUser.aboutUserPassword.value)
   const [error, setError] = React.useState("")

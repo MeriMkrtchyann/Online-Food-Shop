@@ -8,7 +8,8 @@ export default function UserAddresAndValidation({aboutUser , aboutUserAddres , s
     const [addres , setAddres] = React.useState("")
 
     const handleAddresChange  = ( event ) => {
-        setAddres(event.target.value)
+        const addres = event.target.value
+        setAddres(addres)
         setAboutUser({
             ...aboutUser ,
             aboutUserAddres: {

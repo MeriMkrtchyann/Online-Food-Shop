@@ -11,12 +11,12 @@ export default function UserLastNameAndValidation({aboutUser, aboutUserLastName,
     const handleUserLastNameChange = (event) => {
         let input = event.target.value;
         const onlyLettersRegex = /^[a-zA-Z]+$/;
-        if (!input.length) {
-            setUserLastName("");
+        if (input.length < 1) {
+          setUserLastName("");
         } else if (input.length < 15 && input.match(onlyLettersRegex)) {
           const formattedName = input.charAt(0).toUpperCase() + input.slice(1).toLowerCase();
           setUserLastName(formattedName);
-          if (userLastName.length > 3) {
+          if (userLastName.length > 2) {
             setAboutUser({
               ...aboutUser ,
               aboutUserLastName : {

@@ -9,14 +9,14 @@ const UserFirstNameAndValidation = ({aboutUser, aboutUserFirstName, setAboutUser
   const isUserNameInvalid = userFirstName.length >= 1 && userFirstName.length < 3;
 
   const handleUserNameChange = (event) => {
-    let input = event.target.value;
+    const input = event.target.value;
     const onlyLettersRegex = /^[a-zA-Z]+$/;
     if (!input.length) {
       setUserFirstName("");
     } else if (input.length < 15 && input.match(onlyLettersRegex)) {
       const formattedName = input.charAt(0).toUpperCase() + input.slice(1).toLowerCase();
       setUserFirstName(formattedName);
-      if (userFirstName.length > 3) {
+      if (userFirstName.length > 2) {
         setAboutUser({
           ...aboutUser ,
           aboutUserFirstName : {

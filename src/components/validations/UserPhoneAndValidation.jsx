@@ -9,7 +9,7 @@ export default function UserPhoneAndValidation({aboutUser, aboutUserPhome , setA
     const isUserPhoneInvalid = phone.length >= 1 && phone.length < 8;
 
     const handleContactChange  = ( event ) => {
-      console.log(event.target.value.slice(6,))
+
       if (!(event.target.value.startsWith("(+374) 0"))){
         let number = event.target.value.slice(5,event.target.value.length).replace(/\D/g, '')
         if (number.length < 9 ){
@@ -19,7 +19,7 @@ export default function UserPhoneAndValidation({aboutUser, aboutUserPhome , setA
             setAboutUser({
               ...aboutUser ,
               aboutUserPhome: {
-                value : `+374${phone}`,
+                value : `+374${number}`,
                 valid : false,
               }
           })
@@ -27,7 +27,7 @@ export default function UserPhoneAndValidation({aboutUser, aboutUserPhome , setA
             setAboutUser({
                 ...aboutUser ,
                 aboutUserPhome: {
-                    value : `+374${phone}`,
+                    value : `+374${number}`,
                     valid : true,
                 }
             })

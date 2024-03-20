@@ -12,7 +12,7 @@ export default function UserNameAndValidation({aboutUser, aboutUserName, setAbou
         const formattedName = event.target.value;
         if (formattedName.length < 15){
             setUserName(formattedName)
-            if (userName.length > 3) {
+            if (userName.length > 2) {
                 setAboutUser({
                   ...aboutUser ,
                   aboutUserName : {

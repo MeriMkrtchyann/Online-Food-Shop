@@ -7,12 +7,12 @@ import { faLinesLeaning } from '@fortawesome/free-solid-svg-icons';
 export default function UserEmailAndValidation({aboutUser, aboutUserEmail , setAboutUser }){
 
     const [email, setEmail] = React.useState('');
-
     let emailValidationRegex = ( /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
     let isEmailInvalid = email.length >= 1  && !email.match(emailValidationRegex)
 
     const handleEmailChange  = ( event ) => {
-        setEmail(event.target.value)
+        const email = event.target.value
+        setEmail(email)
         if (isEmailInvalid || email.length < 1) {
             setAboutUser({
               ...aboutUser ,

@@ -9,7 +9,8 @@ export default function UserPasswordValidation({ aboutUser, aboutUserPassword, s
     let isPasswordInvalid =  !password.match(passwordValidationRegex) && (password.length >= 1 && password.length <= 7)
 
     const handlePasswordChange  = ( event ) => {
-            setPassword(event.target.value)
+            const password = event.target.value
+            setPassword(password)
             if (isPasswordInvalid || password.length < 1 ) {
                 setAboutUser({
                   ...aboutUser ,

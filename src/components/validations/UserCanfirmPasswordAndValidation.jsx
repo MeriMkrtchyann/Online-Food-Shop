@@ -9,7 +9,8 @@ export default function UserCanfirmPasswordAndValidation({password, aboutUserCan
     let isCanfirmPasswordInvalid = !(password === canfirmPassword) && canfirmPassword.length >= 1
 
     const handlecanfirmPasswordChange  = ( event ) => {
-        setCanfirmPassword(event.target.value)
+        const canfirmPassword = event.target.value
+        setCanfirmPassword(canfirmPassword)
         if (isCanfirmPasswordInvalid || canfirmPassword.length < 1) {
             setAboutUser({
               ...aboutUser ,
