@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import FormHelperText from '@mui/material/FormHelperText';
 
-export default function UserPhoneAndValidation({aboutUser, aboutUserPhome , setObj}){
+export default function UserPhoneAndValidation({aboutUser, aboutUserPhome , setAboutUser}){
 
     const [phone , setPhone] = React.useState("")
     const isUserPhoneInvalid = phone.length >= 1 && phone.length < 8;
@@ -16,17 +16,17 @@ export default function UserPhoneAndValidation({aboutUser, aboutUserPhome , setO
            setPhone(number);
         }
         if (isUserPhoneInvalid) {
-            setObj({
+            setAboutUser({
               ...aboutUser ,
-              aboutUserPhome: {
+              [aboutUserPhome]: {
                 value : phone,
                 valid : true,
               }
           })
           } else {
-            setObj({
+            setAboutUser({
                 ...aboutUser ,
-                aboutUserPhome: {
+                [aboutUserPhome]: {
                     value : `+374${phone}`,
                     valid : false,
                 }
