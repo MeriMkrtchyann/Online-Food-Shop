@@ -33,7 +33,8 @@ export function SignUpPage() {
     aboutUserEmail : {},
     aboutUserPhome : {},
     aboutUserAddres : {},
-    userCanfirmPassword : {}
+    aboutUserPassword : {},
+    aboutUserCanfirmPassword : {}
   })
 
   React.useEffect(()=>{
@@ -107,7 +108,7 @@ export function SignUpPage() {
                   <UserPhoneAndValidation aboutUser={aboutUser} aboutUserPhom={aboutUser.aboutUserPhome} setAboutUser={setAboutUser}/>
                   <UserAddresAndValidation aboutUser={aboutUser} aboutUserAddres={aboutUser.aboutUserAddres} setAboutUser={setAboutUser}/>
                   <UserPasswordValidation aboutUser={aboutUser} aboutUserPassword={aboutUser.aboutUserPassword} setAboutUser={setAboutUser}/>
-                  <UserCanfirmPasswordAndValidation  password={aboutUser.password} aboutUser={aboutUser} userCanfirmPassword={aboutUser.userCanfirmPassword} setAboutUser={setAboutUser}/> 
+                  <UserCanfirmPasswordAndValidation  password={aboutUser.aboutUserPassword.value} aboutUser={aboutUser} aboutCserCanfirmPassword={aboutUser.aboutUserCanfirmPassword} setAboutUser={setAboutUser}/> 
                 
                   <Grid item xs={12}>
                     <FormControlLabel

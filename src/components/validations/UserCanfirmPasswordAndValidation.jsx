@@ -3,9 +3,9 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import FormHelperText from '@mui/material/FormHelperText';
 
-export default function UserCanfirmPasswordAndValidation({password, userCanfirmPassword, aboutUser, setAboutUser}){
+export default function UserCanfirmPasswordAndValidation({password, aboutUserCanfirmPassword, aboutUser, setAboutUser}){
 
-    const [canfirmPassword, setCanfirmPassword] = React.useState('');
+    const [ canfirmPassword, setCanfirmPassword] = React.useState("")
     let isCanfirmPasswordInvalid = canfirmPassword.length >=1 && !(password === canfirmPassword)
 
     const handlecanfirmPasswordChange  = ( event ) => {
@@ -13,15 +13,15 @@ export default function UserCanfirmPasswordAndValidation({password, userCanfirmP
         if (isCanfirmPasswordInvalid) {
             setAboutUser({
               ...aboutUser ,
-              [userCanfirmPassword]: {
+              [aboutUserCanfirmPassword]: {
                 value : canfirmPassword,
                 valid : false,
               }
-            })
-        } else {
+          })
+          } else {
             setAboutUser({
                 ...aboutUser ,
-                [userCanfirmPassword]: {
+                [aboutUserCanfirmPassword]: {
                     value : canfirmPassword,
                     valid : true,
                 }

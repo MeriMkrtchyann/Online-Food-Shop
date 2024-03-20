@@ -13,7 +13,7 @@ export default function UserEmailAndValidation({aboutUser, aboutUserEmail , setA
 
     const handleEmailChange  = ( event ) => {
         setEmail(event.target.value)
-        if (isEmailInvalid) {
+        if (isEmailInvalid || email.length < 1) {
             setAboutUser({
               ...aboutUser ,
               [aboutUserEmail]: {
