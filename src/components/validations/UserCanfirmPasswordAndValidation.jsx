@@ -6,11 +6,11 @@ import FormHelperText from '@mui/material/FormHelperText';
 export default function UserCanfirmPasswordAndValidation({password, aboutUserCanfirmPassword, aboutUser, setAboutUser}){
 
     const [ canfirmPassword, setCanfirmPassword] = React.useState("")
-    let isCanfirmPasswordInvalid = !(password === canfirmPassword)
+    let isCanfirmPasswordInvalid = !(password === canfirmPassword) && canfirmPassword.length >= 1
 
     const handlecanfirmPasswordChange  = ( event ) => {
         setCanfirmPassword(event.target.value)
-        if (isCanfirmPasswordInvalid) {
+        if (isCanfirmPasswordInvalid || canfirmPassword.length < 1) {
             setAboutUser({
               ...aboutUser ,
               aboutUserCanfirmPassword: {
