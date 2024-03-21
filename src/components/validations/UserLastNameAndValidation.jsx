@@ -45,7 +45,6 @@ export default function UserLastNameAndValidation({aboutUser, aboutUserLastName,
                 fullWidth
                 id="lastName"
                 label="Last Name"
-                autoFocus
                 value={userLastName}
                 onChange={handleUserLastNameChange}
                 error={isUserLastNameInalid}
