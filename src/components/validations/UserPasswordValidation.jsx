@@ -17,7 +17,9 @@ export default function UserPasswordValidation({ aboutUser, aboutUserPassword, s
             const passwordValidationRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[\w@$!%*?&.\\]{8,}$/;
             let isPasswordInvalid =  !password.match(passwordValidationRegex)
             setPassword(password)
-            if ( isPasswordInvalid ) {
+            if (!password.length){
+                setIsPasswordInvalid(false)
+            }else if ( isPasswordInvalid ) {
                 setIsPasswordInvalid(true)
                 setAboutUser({
                   ...aboutUser ,
