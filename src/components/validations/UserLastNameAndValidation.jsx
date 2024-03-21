@@ -6,7 +6,7 @@ import FormHelperText from '@mui/material/FormHelperText';
 export default function UserLastNameAndValidation({aboutUser, aboutUserLastName, setAboutUser}) {
     
     const [userLastName, setUserLastName] = React.useState('');
-    const isUserLastNameInalid = userLastName.length >= 1 && userLastName.length < 3;
+    const isUserLastNameInalid = userLastName.length >= 1 && userLastName.length < 2;
   
     const handleUserLastNameChange = (event) => {
         let input = event.target.value;
@@ -16,7 +16,7 @@ export default function UserLastNameAndValidation({aboutUser, aboutUserLastName,
         } else if (input.length < 15 && input.match(onlyLettersRegex)) {
           const formattedName = input.charAt(0).toUpperCase() + input.slice(1).toLowerCase();
           setUserLastName(formattedName);
-          if (userLastName.length > 2) {
+          if (userLastName.length >= 2) {
             setAboutUser({
               ...aboutUser ,
               aboutUserLastName : {
