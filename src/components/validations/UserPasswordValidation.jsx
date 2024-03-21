@@ -10,13 +10,15 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 export default function UserPasswordValidation({ aboutUser, aboutUserPassword, setAboutUser, setPassword = "" ,password }){
 
     const [showPassword, setShowPassword] = React.useState(false)
-    const passwordValidationRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[\w@$!%*?&.\\]{8,}$/;
-    let isPasswordInvalid =  !password.match(passwordValidationRegex) && (password.length >= 1 || password.length <= 7)
+    const [isPasswordInvalid , setIsPasswordInvalid] = React.useState(!password.length ? false : true)
     
     const handlePasswordChange  = ( event ) => {
             const password = event.target.value
+            const passwordValidationRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[\w@$!%*?&.\\]{8,}$/;
+            let isPasswordInvalid =  !password.match(passwordValidationRegex)
             setPassword(password)
-            if (isPasswordInvalid || password.length < 1 ) {
+            if ( isPasswordInvalid ) {
+                setIsPasswordInvalid(true)
                 setAboutUser({
                   ...aboutUser ,
                   aboutUserPassword: {
@@ -25,6 +27,7 @@ export default function UserPasswordValidation({ aboutUser, aboutUserPassword, s
                   }
               })
             } else {
+                setIsPasswordInvalid(false)
                 setAboutUser({
                     ...aboutUser ,
                     aboutUserPassword: {
