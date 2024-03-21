@@ -69,11 +69,11 @@ export default function UserPasswordValidation({ aboutUser, aboutUserPassword, s
             />
              {isPasswordInvalid ? (
                 <FormHelperText error>
-                    Please enter a password with at least 7 characters (uppercase,  lowercase, number, simbol)
+                    Please enter a password with at least 8 characters (uppercase,  lowercase, number, simbol)
                 </FormHelperText>
             ) : (
                 <FormHelperText>
-                    Please enter a password with at least 7 characters (uppercase, lowercase, number, simbol)
+                    Please enter a password with at least 8 characters (uppercase, lowercase, number, simbol)
                 </FormHelperText>
             ) }
         </Grid>

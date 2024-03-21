@@ -51,9 +51,9 @@ const UserFirstNameAndValidation = ({aboutUser, aboutUserFirstName, setAboutUser
         error={isUserNameInvalid}
       />
       {isUserNameInvalid ? (
-        <FormHelperText error>First name must be at least 4 characters long.</FormHelperText>
+        <FormHelperText error>First name must be at least 2 characters long.</FormHelperText>
       ) : (
-        <FormHelperText>First name must be at least 4 characters long.</FormHelperText>
+        <FormHelperText>First name must be at least 2 characters long.</FormHelperText>
       )}
     </Grid>
   );
