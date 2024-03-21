@@ -70,11 +70,11 @@ export default function UserCanfirmPasswordAndValidation({password, aboutUserCan
             />
             {isCanfirmPasswordInvalid ? (
                 <FormHelperText error>
-                Password confirmation must match the original password..
+                Password confirmation must match the original password.
                 </FormHelperText>
             ) : (
                 <FormHelperText >
-                Please confirm your password
+                Please confirm your password.
                 </FormHelperText>
             )}
         </Grid>

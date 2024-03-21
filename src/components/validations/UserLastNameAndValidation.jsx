@@ -51,11 +51,11 @@ export default function UserLastNameAndValidation({aboutUser, aboutUserLastName,
             />
             {isUserLastNameInalid ? (
                 <FormHelperText error >
-                    Last name  must be at least 2 characters long..
+                    Last name  must be at least 2 characters long.
                 </FormHelperText>
             ): (
                 <FormHelperText >
-                    Last name  must be at least 2 characters long..
+                    Last name  must be at least 2 characters long.
                 </FormHelperText>
             )}
         </Grid>

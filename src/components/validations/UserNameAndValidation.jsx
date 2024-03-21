@@ -47,11 +47,11 @@ export default function UserNameAndValidation({aboutUser, aboutUserName, setAbou
             />
              {isUserNameInalid ? (
                 <FormHelperText error>
-                    Username name must be at least 4 characters long and not exceed 20 characters..
+                    Username must be at least 4 characters long and not exceed 20 characters.
                 </FormHelperText>
             ):(
                 <FormHelperText >
-                    Username name must be at least 4 characters long and not exceed 20 characters..
+                    Username must be at least 4 characters long and not exceed 20 characters.
                 </FormHelperText>
             )}
         </Grid>
