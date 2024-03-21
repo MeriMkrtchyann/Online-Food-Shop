@@ -11,7 +11,7 @@ For each person will be personal account, in which they can see their shoppong, 
 
 For saveing info is used firebase.
 
-# ![AMMA-Track(Trello clone) images](Online-Food-Shop/blob/setUp/src/components/images/README_image.jpg "AMMA-Track app")
+# (Online-Food-Shop/blob/setUp/src/components/images/README_image.jpg "AMMA-Track app")
 
 ## To run this application, you'll need the following software installed on your system:
 
