@@ -6,8 +6,8 @@ import SpringModal from '../../components/modals/Modal';
 
 export function SignUpPage() {
 
-  const [error, setError] = React.useState("")
   const [openModal , setOpenModal] = React.useState(false)
+  const [modalText , setModalText] = React.useState("")
 
   const [aboutUser , setAboutUser] = React.useState({
     aboutUserFirstName : {value : "", valid : false},
@@ -31,33 +31,48 @@ export function SignUpPage() {
       try {
         const email = aboutUser.aboutUserEmail.value
         const password = aboutUser.aboutUserPassword.value
-        console.log(email, password)
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
         if (user) {
           await sendEmailVerification(userCredential.user) 
+          setModalText("A verification email has been sent to your address. Please check your inbox.")
           console.log("Email verification sent");
         } else {
-          setError("Failed to create user");
+          setModalText("User creation failed. Please try again.")
         }
+        setOpenModal(true)
       } catch (error) {
-        console.error('Ошибка при регистрации:', error.message);
-        setError(error.message);
+        switch (error.code) {
+          case 'auth/email-already-in-use':
+            setModalText("An account with this email already exists. Please use a different email or log in.")
+            break;
+          case 'auth/invalid-email':
+            setModalText("The email address is not valid. Please enter a valid email address.")
+            break;
+          case 'auth/weak-password':
+            setModalText("The password is too weak. Please enter a stronger password.")
+            break;
+          default:
+            setModalText("An error occurred during registration. Please try again later.")
+            break;
+        }
+        console.error('Registration error:', error.message);
+        setOpenModal(true);
       }
-    }else{
+  }else{
       setOpenModal(true)
       setTimeout(() => {
         setOpenModal(false)
-      },3000)
-      console.error('Ошибка');
-      // setError(error.message);
+      },4000)
+      setModalText("Please fill in all the required fields.")
+      console.error('Please fill in all the required fields.');
     }
   };
  
   return ( 
     <div onClick={()=>setOpenModal(false)}>
       <Registraion aboutUser={aboutUser} setAboutUser={setAboutUser} handleRegistration={handleRegistration} />
-      <SpringModal openModal={openModal}/>
+      <SpringModal openModal={openModal} modalText={modalText}/>
     </div>
   );
 }

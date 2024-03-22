@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useSpring, animated } from '@react-spring/web';
+import "./Modal.css"
 
 const Fade = React.forwardRef(function Fade(props, ref) {
   const {
@@ -60,7 +60,7 @@ const style = {
   p: 4,
 };
 
-export default function SpringModal({openModal}) {
+export default function SpringModal({openModal, modalText}) {
 
   return (
     <div>
@@ -77,12 +77,9 @@ export default function SpringModal({openModal}) {
         }}
       >
         <Fade in={openModal}>
-          <Box sx={style}>
-            <Typography id="spring-modal-title" variant="h6" component="h2">
-              Text in a modal
-            </Typography>
-            <Typography id="spring-modal-description" sx={{ mt: 2 }}>
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+          <Box sx={{ ...style, ...{ className: 'animated-div' } }}>
+            <Typography id="spring-modal-description" sx={{ mt: 2, className: 'modal-text' }}>
+              {`${modalText}`}
             </Typography>
           </Box>
         </Fade>
