@@ -3,12 +3,14 @@ import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/
 import { auth } from "../../firebase/firebase"
 import { Registraion } from '../../components/registration/Registration';
 import SpringModal from '../../components/modals/Modal';
+import { useNavigate } from "react-router-dom";
 
 export function SignUpPage() {
 
   const [openModal , setOpenModal] = React.useState(false)
   const [modalText , setModalText] = React.useState("")
   const [modalTextColor , setModalTextColor] = React.useState("red")
+  const navigate = useNavigate();
 
   const [aboutUser , setAboutUser] = React.useState({
     aboutUserFirstName : {value : "", valid : false},
@@ -38,6 +40,10 @@ export function SignUpPage() {
           await sendEmailVerification(userCredential.user) 
           setModalText("A verification email has been sent to your address. Please check your inbox.")
           setModalTextColor("green")
+          setTimeout(() => {
+            setOpenModal(false)
+            navigate("/signIn")
+          },2000)
           console.log("Email verification sent");
         } else {
           setModalText("User creation failed. Please try again.")
