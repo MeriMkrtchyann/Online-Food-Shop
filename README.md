@@ -11,7 +11,7 @@ For each person will be personal account, in which they can see their shoppong, 
 
 For saveing info is used firebase.
 
-# ![Online-Food-Shop images](src/components/images/README_image.webp "Online-Food-Shop")
+# ![Online-Food-Shop images](src/components/images/README_image.jpg "Online-Food-Shop")
 
 ## To run this application, you'll need the following software installed on your system:
 
