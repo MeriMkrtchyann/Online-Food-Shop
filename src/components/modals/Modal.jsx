@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Typography from '@mui/material/Typography';
 import { useSpring, animated } from '@react-spring/web';
-import "./Modal.css"
+// import "./Modal.css"
 
 const Fade = React.forwardRef(function Fade(props, ref) {
   const {
@@ -55,19 +55,21 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: 400,
   bgcolor: 'background.paper',
-  border: '2px solid #000',
+  borderRadius: "15px",
   boxShadow: 24,
-  p: 4,
+  p: 8,
+  display: 'flex', // Добавлено для выравнивания содержимого
+  alignItems: 'center', // Добавлено для вертикального выравнивания
+  justifyContent: 'center', // Добавлено для горизонтального выравнивания
 };
 
 export default function SpringModal({openModal, modalText}) {
-
   return (
     <div>
       <Modal
         aria-labelledby="spring-modal-title"
         aria-describedby="spring-modal-description"
-        open={openModal} 
+        open={openModal}
         closeAfterTransition
         slots={{ backdrop: Backdrop }}
         slotProps={{
@@ -77,9 +79,9 @@ export default function SpringModal({openModal, modalText}) {
         }}
       >
         <Fade in={openModal}>
-          <Box sx={{ ...style, ...{ className: 'animated-div' } }}>
-            <Typography id="spring-modal-description" sx={{ mt: 2, className: 'modal-text' }}>
-              {`${modalText}`}
+          <Box sx={style}>
+            <Typography id="spring-modal-description" sx={{ textAlign: 'center' }} className='modal-text'>
+              {modalText}
             </Typography>
           </Box>
         </Fade>
