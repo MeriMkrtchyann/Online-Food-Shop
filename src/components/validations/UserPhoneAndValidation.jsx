@@ -3,24 +3,46 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import FormHelperText from '@mui/material/FormHelperText';
 
-export default function UserPhoneAndValidation({contact , setContact}){
+export default function UserPhoneAndValidation({aboutUser, aboutUserPhome , setAboutUser}){
 
-    const isUserNameInvalid = contact.length >= 1 && contact.length < 8;
+    const [phone , setPhone] = React.useState("")
+    const [isUserPhoneInvalid , setIsUserPhoneInvalid] = React.useState(!phone.length  ? false : true )
 
     const handleContactChange  = ( event ) => {
-      console.log(event.target.value.slice(6,))
-      if (!(event.target.value.startsWith("(+374) 0"))){
         let number = event.target.value.slice(5,event.target.value.length).replace(/\D/g, '')
-        if (number.length < 9 ){
-          setContact(number);
+        if (number.length < 9) {
+            if (!number || number.length === 8 ){
+                setIsUserPhoneInvalid(false) 
+            }else {
+                setIsUserPhoneInvalid(true) 
+            }
+            if (number.length < 9){
+                setPhone(number)
+            }
+            if ( number.length < 8) {
+                setAboutUser({
+                  ...aboutUser ,
+                  aboutUserPhome: {
+                    value : `+374${number}`,
+                    valid : false,
+                  }
+              })
+              } else {
+                console.log("valid")
+                setAboutUser({
+                    ...aboutUser ,
+                    aboutUserPhome: {
+                        value : `+374${number}`,
+                        valid : true,
+                    }
+                })
+              }
         }
-        return
-      }
     }
 
     return (
         <Grid item xs={12} style={{ paddingTop: 5 }}>
-            <input type="hidden" name="contact" value={contact} />
+            <input type="hidden" name="contact" value={phone} />
             <TextField
                 required
                 fullWidth
@@ -29,11 +51,11 @@ export default function UserPhoneAndValidation({contact , setContact}){
                 type="text"
                 name="formattedContact"
                 autoComplete="contact"
-                value={`(+374) ${contact}`}
+                value={`(+374) ${phone}`}
                 onChange={handleContactChange}
-                error={isUserNameInvalid}
+                error={isUserPhoneInvalid}
             />
-            {isUserNameInvalid ? (
+            {isUserPhoneInvalid ? (
                 <FormHelperText error>
                     Please enter a valid phone number.
                 </FormHelperText>
