@@ -60,19 +60,14 @@ const style = {
   p: 4,
 };
 
-export default function SpringModal() {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+export default function SpringModal({openModal}) {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
       <Modal
         aria-labelledby="spring-modal-title"
         aria-describedby="spring-modal-description"
-        open={open}
-        onClose={handleClose}
+        open={openModal} 
         closeAfterTransition
         slots={{ backdrop: Backdrop }}
         slotProps={{
@@ -81,7 +76,7 @@ export default function SpringModal() {
           },
         }}
       >
-        <Fade in={open}>
+        <Fade in={openModal}>
           <Box sx={style}>
             <Typography id="spring-modal-title" variant="h6" component="h2">
               Text in a modal

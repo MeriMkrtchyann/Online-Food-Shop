@@ -1,14 +1,13 @@
 import * as React from 'react';
-import { createTheme } from '@mui/material/styles';
 import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
 import { auth } from "../../firebase/firebase"
 import { Registraion } from '../../components/registration/Registration';
-
-
-
-const defaultTheme = createTheme();
+import SpringModal from '../../components/modals/Modal';
 
 export function SignUpPage() {
+
+  const [error, setError] = React.useState("")
+  const [openModal , setOpenModal] = React.useState(false)
 
   const [aboutUser , setAboutUser] = React.useState({
     aboutUserFirstName : {value : "", valid : false},
@@ -24,8 +23,6 @@ export function SignUpPage() {
   const isValidUser = () => {
     return Object.values(aboutUser).every(({ valid }) => valid);
   };
-
-  const [error, setError] = React.useState("")
 
   const handleRegistration = async (event) => {
     event.preventDefault();
@@ -48,12 +45,19 @@ export function SignUpPage() {
         setError(error.message);
       }
     }else{
+      setOpenModal(true)
+      setTimeout(() => {
+        setOpenModal(false)
+      },3000)
       console.error('Ошибка');
       // setError(error.message);
     }
   };
  
-  return (
-    <Registraion aboutUser={aboutUser} setAboutUser={setAboutUser} handleRegistration={handleRegistration}/>
+  return ( 
+    <div onClick={()=>setOpenModal(false)}>
+      <Registraion aboutUser={aboutUser} setAboutUser={setAboutUser} handleRegistration={handleRegistration} />
+      <SpringModal openModal={openModal}/>
+    </div>
   );
 }

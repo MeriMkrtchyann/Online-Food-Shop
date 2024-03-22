@@ -22,7 +22,7 @@ import UserCanfirmPasswordAndValidation from "../validations/UserCanfirmPassword
 
 const defaultTheme = createTheme();
 
-export function Registraion({aboutUser , setAboutUser, handleRegistration}) {
+export function Registraion({aboutUser , setAboutUser, handleRegistration, }) {
   return (
     <ThemeProvider theme={defaultTheme} >
           <Grid container component="main" className="SignUpPage"
