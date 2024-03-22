@@ -48,22 +48,24 @@ Fade.propTypes = {
   ownerState: PropTypes.any,
 };
 
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  borderRadius: "15px",
-  boxShadow: 24,
-  p: 8,
-  display: 'flex', 
-  alignItems: 'center', 
-  justifyContent: 'center', 
-};
+export default function SpringModal({openModal, modalText, modalTextColor}) {
 
-export default function SpringModal({openModal, modalText}) {
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    borderRadius: "15px",
+    boxShadow: 24,
+    p: 6,
+    display: 'flex', 
+    alignItems: 'center', 
+    justifyContent: 'center', 
+    color: `${modalTextColor}`
+  };
+
   return (
     <div>
       <Modal
@@ -80,7 +82,7 @@ export default function SpringModal({openModal, modalText}) {
       >
         <Fade in={openModal}>
           <Box sx={style}>
-            <Typography id="spring-modal-description" sx={{ textAlign: 'center' }} className='modal-text'>
+            <Typography id="spring-modal-description" sx={{ textAlign: 'center', fontSize:"18px"}} className='modal-text'>
               {modalText}
             </Typography>
           </Box>

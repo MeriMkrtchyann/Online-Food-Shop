@@ -19,9 +19,7 @@ export default function UserPhoneAndValidation({aboutUser, aboutUserPhome , setA
             if (number.length < 9){
                 setPhone(number)
             }
-            console.log(number.length)
             if ( number.length < 8) {
-                console.log("invalid")
                 setAboutUser({
                   ...aboutUser ,
                   aboutUserPhome: {

@@ -8,6 +8,7 @@ export function SignUpPage() {
 
   const [openModal , setOpenModal] = React.useState(false)
   const [modalText , setModalText] = React.useState("")
+  const [modalTextColor , setModalTextColor] = React.useState("red")
 
   const [aboutUser , setAboutUser] = React.useState({
     aboutUserFirstName : {value : "", valid : false},
@@ -36,11 +37,13 @@ export function SignUpPage() {
         if (user) {
           await sendEmailVerification(userCredential.user) 
           setModalText("A verification email has been sent to your address. Please check your inbox.")
+          setModalTextColor("green")
           console.log("Email verification sent");
         } else {
           setModalText("User creation failed. Please try again.")
         }
         setOpenModal(true)
+        setTimeout(() => {setOpenModal(false)},3000)
       } catch (error) {
         switch (error.code) {
           case 'auth/email-already-in-use':
@@ -57,13 +60,12 @@ export function SignUpPage() {
             break;
         }
         console.error('Registration error:', error.message);
+        setTimeout(() => {setOpenModal(false)},3000)
         setOpenModal(true);
       }
   }else{
       setOpenModal(true)
-      setTimeout(() => {
-        setOpenModal(false)
-      },4000)
+      setTimeout(() => {setOpenModal(false)},3000)
       setModalText("Please fill in all the required fields.")
       console.error('Please fill in all the required fields.');
     }
@@ -72,7 +74,7 @@ export function SignUpPage() {
   return ( 
     <div onClick={()=>setOpenModal(false)}>
       <Registraion aboutUser={aboutUser} setAboutUser={setAboutUser} handleRegistration={handleRegistration} />
-      <SpringModal openModal={openModal} modalText={modalText}/>
+      <SpringModal openModal={openModal} modalText={modalText} modalTextColor={modalTextColor}/>
     </div>
   );
 }
