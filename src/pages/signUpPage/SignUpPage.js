@@ -21,45 +21,55 @@ import UserPasswordValidation from '../../components/validations/UserPasswordVal
 import UserCanfirmPasswordAndValidation from '../../components/validations/UserCanfirmPasswordAndValidation';
 import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
 import { auth } from "../../firebase/firebase"
+import { ConstructionOutlined } from '@mui/icons-material';
 
 const defaultTheme = createTheme();
 
 export function SignUpPage() {
 
   const [aboutUser , setAboutUser] = React.useState({
-    aboutUserFirstName : {},
-    aboutUserLastName : {},
-    aboutUserName : {},
-    aboutUserEmail : {},
-    aboutUserPhome : {},
-    aboutUserAddres : {},
-    aboutUserPassword : {value : ""},
-    aboutUserCanfirmPassword : {}
+    aboutUserFirstName : {value : "", valid : false},
+    aboutUserLastName : {value : "", valid : false},
+    aboutUserName :{value : "", valid : false},
+    aboutUserEmail : {value : "", valid : false},
+    aboutUserPhome : {value : "", valid : false},
+    aboutUserAddres : {value : "", valid : true},
+    aboutUserPassword : {value : "", valid : false},
+    aboutUserCanfirmPassword : {value : "", valid : false}
   })
 
-  // React.useEffect(()=>{
-  //   console.log("useEffect",JSON.stringify(aboutUser))
-  // })
+  console.log(aboutUser)
 
-  console.log(JSON.stringify(aboutUser))
-
-  const [password , setPassword] = React.useState(aboutUser.aboutUserPassword.value)
   const [error, setError] = React.useState("")
+
+  const isValidUser = () => {
+    return Object.values(aboutUser).every(({ valid }) => valid);
+  };
 
   const handleRegistration = async (event) => {
     event.preventDefault();
-    try {
-      const userCredential = await createUserWithEmailAndPassword(auth, aboutUser.aboutUserEmail.email, password);
-      const user = userCredential.user;
-      if (user) {
-        await sendEmailVerification(userCredential.user) 
-        console.log("Email verification sent");
-      } else {
-        setError("Failed to create user");
+    const isValid = isValidUser()
+    if (isValid){
+      try {
+        const email = aboutUser.aboutUserEmail.value
+        const password = aboutUser.aboutUserPassword.value
+        console.log(email, password)
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        if (user) {
+          await sendEmailVerification(userCredential.user) 
+          console.log("Email verification sent");
+          console.log(aboutUser);
+        } else {
+          setError("Failed to create user");
+        }
+      } catch (error) {
+        console.error('Ошибка при регистрации:', error.message);
+        setError(error.message);
       }
-    } catch (error) {
-      console.error('Ошибка при регистрации:', error.message);
-      setError(error.message);
+    }else{
+      console.error('Ошибка');
+      // setError(error.message);
     }
   };
  
@@ -111,8 +121,8 @@ export function SignUpPage() {
                   <UserEmailAndValidation aboutUser={aboutUser} aboutUserEmail={aboutUser.aboutUserEmail} setAboutUser={setAboutUser} />
                   <UserPhoneAndValidation aboutUser={aboutUser} aboutUserPhom={aboutUser.aboutUserPhome} setAboutUser={setAboutUser}/>
                   <UserAddresAndValidation aboutUser={aboutUser} aboutUserAddres={aboutUser.aboutUserAddres} setAboutUser={setAboutUser}/>
-                  <UserPasswordValidation aboutUser={aboutUser} aboutUserPassword={aboutUser.aboutUserPassword} setAboutUser={setAboutUser} password={password} setPassword={setPassword}/>
-                  <UserCanfirmPasswordAndValidation  password={password} aboutUser={aboutUser} aboutCserCanfirmPassword={aboutUser.aboutUserCanfirmPassword} setAboutUser={setAboutUser}/> 
+                  <UserPasswordValidation aboutUser={aboutUser} aboutUserPassword={aboutUser.aboutUserPassword} setAboutUser={setAboutUser}/>
+                  <UserCanfirmPasswordAndValidation password={aboutUser.aboutUserPassword.value} aboutUser={aboutUser} aboutCserCanfirmPassword={aboutUser.aboutUserCanfirmPassword} setAboutUser={setAboutUser}/> 
                   <Grid item xs={12}>
                     <FormControlLabel
                       control={<Checkbox value="allowExtraEmails" color="primary" />}

@@ -7,8 +7,9 @@ import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
-export default function UserPasswordValidation({ aboutUser, aboutUserPassword, setAboutUser, setPassword = "" ,password }){
+export default function UserPasswordValidation({ aboutUser, setAboutUser }){
 
+    const [password , setPassword] = React.useState("")
     const [showPassword, setShowPassword] = React.useState(false)
     const [isPasswordInvalid , setIsPasswordInvalid] = React.useState(!password.length ? false : true)
     

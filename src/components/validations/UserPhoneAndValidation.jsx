@@ -6,33 +6,40 @@ import FormHelperText from '@mui/material/FormHelperText';
 export default function UserPhoneAndValidation({aboutUser, aboutUserPhome , setAboutUser}){
 
     const [phone , setPhone] = React.useState("")
-    const isUserPhoneInvalid = phone.length >= 1 && phone.length < 8;
+    const [isUserPhoneInvalid , setIsUserPhoneInvalid] = React.useState(!phone.length  ? false : true )
 
     const handleContactChange  = ( event ) => {
-
-      if (!(event.target.value.startsWith("(+374) 0"))){
         let number = event.target.value.slice(5,event.target.value.length).replace(/\D/g, '')
-        if (number.length < 9 ){
-           setPhone(number);
-        }
-        if (isUserPhoneInvalid || number.length < 4) {
-            setAboutUser({
-              ...aboutUser ,
-              aboutUserPhome: {
-                value : `+374${number}`,
-                valid : false,
-              }
-          })
-          } else {
-            setAboutUser({
-                ...aboutUser ,
-                aboutUserPhome: {
+        if (number.length < 9) {
+            if (!number || number.length === 8 ){
+                setIsUserPhoneInvalid(false) 
+            }else {
+                setIsUserPhoneInvalid(true) 
+            }
+            if (number.length < 9){
+                setPhone(number)
+            }
+            console.log(number.length)
+            if ( number.length < 8) {
+                console.log("invalid")
+                setAboutUser({
+                  ...aboutUser ,
+                  aboutUserPhome: {
                     value : `+374${number}`,
-                    valid : true,
-                }
-            })
-          }
-      }
+                    valid : false,
+                  }
+              })
+              } else {
+                console.log("valid")
+                setAboutUser({
+                    ...aboutUser ,
+                    aboutUserPhome: {
+                        value : `+374${number}`,
+                        valid : true,
+                    }
+                })
+              }
+        }
     }
 
     return (
