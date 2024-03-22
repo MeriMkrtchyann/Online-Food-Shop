@@ -41,6 +41,7 @@ export function SignUpPage() {
           console.log("Email verification sent");
         } else {
           setModalText("User creation failed. Please try again.")
+          setModalTextColor("red")
         }
         setOpenModal(true)
         setTimeout(() => {setOpenModal(false)},3000)
@@ -48,18 +49,23 @@ export function SignUpPage() {
         switch (error.code) {
           case 'auth/email-already-in-use':
             setModalText("An account with this email already exists. Please use a different email or log in.")
+            setModalTextColor("red")
             break;
           case 'auth/invalid-email':
             setModalText("The email address is not valid. Please enter a valid email address.")
+            setModalTextColor("red")
             break;
           case 'auth/weak-password':
             setModalText("The password is too weak. Please enter a stronger password.")
+            setModalTextColor("red")
             break;
           default:
             setModalText("An error occurred during registration. Please try again later.")
+            setModalTextColor("red")
             break;
         }
         console.error('Registration error:', error.message);
+        setModalTextColor("red")
         setTimeout(() => {setOpenModal(false)},3000)
         setOpenModal(true);
       }
