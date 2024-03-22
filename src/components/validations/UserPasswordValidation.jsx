@@ -2,16 +2,49 @@ import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import FormHelperText from '@mui/material/FormHelperText';
+import InputAdornment from '@mui/material/InputAdornment';
+import IconButton from '@mui/material/IconButton';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
-export default function UserPasswordValidation({password, setPassword}){
+export default function UserPasswordValidation({ aboutUser, setAboutUser }){
 
-    const handlePasswordChange  = ( event ) => {
-        setPassword(event.target.value)
-    }
+    const [password , setPassword] = React.useState("")
+    const [showPassword, setShowPassword] = React.useState(false)
+    const [isPasswordInvalid , setIsPasswordInvalid] = React.useState(!password.length ? false : true)
     
-    const passwordValidationRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[\w@$!%*?&.\\]{8,}$/;
-    let isPasswordInvalid = password.length>=1 && password.length <= 7  && !password.match(passwordValidationRegex);
+    const handlePasswordChange  = ( event ) => {
+            const password = event.target.value
+            const passwordValidationRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[\w@$!%*?&.\\]{8,}$/;
+            let isPasswordInvalid =  !password.match(passwordValidationRegex)
+            setPassword(password)
+            if (!password.length){
+                setIsPasswordInvalid(false)
+            }else if ( isPasswordInvalid ) {
+                setIsPasswordInvalid(true)
+                setAboutUser({
+                  ...aboutUser ,
+                  aboutUserPassword: {
+                    value : password,
+                    valid : false,
+                  }
+              })
+            } else {
+                setIsPasswordInvalid(false)
+                setAboutUser({
+                    ...aboutUser ,
+                    aboutUserPassword: {
+                        value : password,
+                        valid : true,
+                    }
+                })
+            }
+    }
 
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+   
     return (
         <Grid item xs={12} style={{ paddingTop: 5 }}>
             <TextField
@@ -19,21 +52,34 @@ export default function UserPasswordValidation({password, setPassword}){
                 fullWidth
                 id="password"
                 label="Password"
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 name="password"
                 autoComplete="newPassword"
-                valueemail
                 value={password}
                 onChange={handlePasswordChange}
                 error={isPasswordInvalid}
+                InputProps={{
+                endAdornment: (
+                <InputAdornment position="end">
+                    <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={togglePasswordVisibility}
+                    edge="end"
+                    style={{marginRight: 2}}
+                    >
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                </InputAdornment>
+                ),
+             }}
             />
              {isPasswordInvalid ? (
                 <FormHelperText error>
-                    Please enter a password with at least 7 characters (uppercase,  lowercase, number, simbol)
+                    Please enter a password with at least 8 characters (uppercase, lowercase, number, @$!%*?&).
                 </FormHelperText>
             ) : (
                 <FormHelperText>
-                    Please enter a password with at least 7 characters (uppercase, lowercase, number, simbol)
+                    Please enter a password with at least 8 characters (uppercase, lowercase, number, @$!%*?&).
                 </FormHelperText>
             ) }
         </Grid>
