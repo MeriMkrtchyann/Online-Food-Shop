@@ -35,13 +35,13 @@ export default function UserNameAndValidation({aboutUser, aboutUserName, setAbou
     return (
         <Grid item xs={12}  style={{ paddingTop: 5 }}>
             <TextField
-                autoComplete="username"
                 name="username"
                 required
                 fullWidth
                 id="username"
                 label="Username"
                 value={userName}
+                autoComplete="off"
                 onChange={handleUserLastNameChange}
                 error={isUserNameInalid}
             />

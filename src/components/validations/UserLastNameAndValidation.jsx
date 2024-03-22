@@ -39,13 +39,13 @@ export default function UserLastNameAndValidation({aboutUser, aboutUserLastName,
     return (
         <Grid item xs={12} style={{ paddingTop: 5 }}>
             <TextField
-                 autoComplete="family-name"
                 name="lastName"
                 required
                 fullWidth
                 id="lastName"
                 label="Last Name"
                 value={userLastName}
+                autoComplete="off"
                 onChange={handleUserLastNameChange}
                 error={isUserLastNameInalid}
             />

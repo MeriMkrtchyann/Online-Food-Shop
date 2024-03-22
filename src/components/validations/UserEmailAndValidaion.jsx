@@ -2,7 +2,6 @@ import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import FormHelperText from '@mui/material/FormHelperText';
-import { faLinesLeaning } from '@fortawesome/free-solid-svg-icons';
 
 export default function UserEmailAndValidation({aboutUser, aboutUserEmail , setAboutUser }){
 
@@ -41,7 +40,7 @@ export default function UserEmailAndValidation({aboutUser, aboutUserEmail , setA
                 label="Email Address"
                 type="email"
                 name="email"
-                autoComplete="email"
+                autoComplete="off"
                 valueemail
                 value={email}
                 onChange={handleEmailChange}

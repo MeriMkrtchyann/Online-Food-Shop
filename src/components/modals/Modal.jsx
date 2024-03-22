@@ -58,9 +58,9 @@ const style = {
   borderRadius: "15px",
   boxShadow: 24,
   p: 8,
-  display: 'flex', // Добавлено для выравнивания содержимого
-  alignItems: 'center', // Добавлено для вертикального выравнивания
-  justifyContent: 'center', // Добавлено для горизонтального выравнивания
+  display: 'flex', 
+  alignItems: 'center', 
+  justifyContent: 'center', 
 };
 
 export default function SpringModal({openModal, modalText}) {

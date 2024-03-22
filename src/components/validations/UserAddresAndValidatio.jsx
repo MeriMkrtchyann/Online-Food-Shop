@@ -24,14 +24,14 @@ export default function UserAddresAndValidation({aboutUser , aboutUserAddres , s
             <TextField
                 required
                 fullWidth
-                id="addres"
+                id="address"
                 label="Address"
-                type="addres"
-                name="addres"
-                autoComplete="addres"
-                valueemail
+                type="text" 
+                name="address"
+                autoComplete="off"
                 value={addres}
                 onChange={handleAddresChange}
+    
             />
             <FormHelperText>
                 Please enter your address. (Optional)

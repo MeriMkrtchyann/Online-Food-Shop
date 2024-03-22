@@ -39,13 +39,13 @@ const UserFirstNameAndValidation = ({aboutUser, aboutUserFirstName, setAboutUser
   return (
     <Grid item xs={12}>
       <TextField
-        autoComplete="given-name"
         name="firstName"
         required
         fullWidth
         id="firstName"
         label="First Name"
         autoFocus
+        autoComplete="off"
         value={userFirstName}
         onChange={handleUserNameChange}
         error={isUserNameInvalid}

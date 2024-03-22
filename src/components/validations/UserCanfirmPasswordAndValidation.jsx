@@ -47,11 +47,11 @@ export default function UserCanfirmPasswordAndValidation({password, aboutUser, s
             <TextField
                 required
                 fullWidth
+                autoComplete="off"
                 id="confirmPassword"
                 label="Confirm Password"
                 type={showCanfirmPassword ? 'text' : 'password'}
                 name="confirmPassword"
-                autoComplete="confirmPassword"
                 value={canfirmPassword}
                 onChange={handlecanfirmPasswordChange}
                 error={isCanfirmPasswordInvalid}
