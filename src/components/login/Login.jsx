@@ -15,7 +15,7 @@ import "./LoginPage.css"
 
 const defaultTheme = createTheme();
 
-export default function Login({handleSubmit}) {
+export default function Login({handleSubmit, setEmail, setPassword}) {
     return(
         <ThemeProvider theme={defaultTheme}>
         <Grid container component="main" className="loginPage" 
@@ -65,6 +65,7 @@ export default function Login({handleSubmit}) {
                   name="email"
                   autoComplete="email"
                   autoFocus
+                  onChange={(value) => setEmail(value.target.value)}
                 />
                 <TextField
                   margin="normal"
@@ -75,6 +76,7 @@ export default function Login({handleSubmit}) {
                   type="password"
                   id="password"
                   autoComplete="current-password"
+                  onChange={(value) => setPassword(value.target.value)}
                 />
                 <FormControlLabel
                   control={<Checkbox value="remember" color="primary" />}
