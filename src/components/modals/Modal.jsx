@@ -48,7 +48,7 @@ Fade.propTypes = {
   ownerState: PropTypes.any,
 };
 
-export default function SpringModal({openModal, modalText, modalTextColor}) {
+export default function SpringModal({openModal, modalText, modalTextColor="red"}) {
 
   const style = {
     position: 'absolute',

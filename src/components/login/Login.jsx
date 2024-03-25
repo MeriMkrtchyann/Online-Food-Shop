@@ -10,12 +10,13 @@ import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+import FormHelperText from '@mui/material/FormHelperText';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import "./LoginPage.css"
 
 const defaultTheme = createTheme();
 
-export default function Login({handleSubmit, setEmail, setPassword}) {
+export default function Login({handleSubmit, setEmail, setPassword, color, errorText}) {
     return(
         <ThemeProvider theme={defaultTheme}>
         <Grid container component="main" className="loginPage" 
@@ -82,14 +83,17 @@ export default function Login({handleSubmit, setEmail, setPassword}) {
                   control={<Checkbox value="remember" color="primary" />}
                   label="Remember me"
                 />
-                <Button
+                 <FormHelperText error style={{color : `${color}`}}>{errorText}</FormHelperText>
+                 <Button
                   type="submit"
                   fullWidth
                   variant="contained"
-                  sx={{ mt: 3, mb: 2 }}
+                  // sx={{ mt: 3, mb: 2 }}
                 >
                   Sign In
                 </Button>
+               
+               
                 <Grid container spacing={2} alignItems="center" justify="center" className="muiLink">
                   <Grid item xs>
                     <MuiLink variant="body2" component={Link} to="/forgetPassword" >
