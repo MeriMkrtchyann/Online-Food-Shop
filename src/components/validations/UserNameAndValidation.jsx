@@ -16,7 +16,7 @@ export default function UserNameAndValidation({aboutUser, aboutUserName, setAbou
                 setAboutUser({
                   ...aboutUser ,
                   aboutUserName : {
-                    userName : formattedName,
+                    value : formattedName,
                     valid: true
                   }
               })
@@ -24,7 +24,7 @@ export default function UserNameAndValidation({aboutUser, aboutUserName, setAbou
                 setAboutUser({
                     ...aboutUser ,
                     aboutUserName : {
-                      userName : formattedName,
+                      value : formattedName,
                       valid: false
                     }
                 })

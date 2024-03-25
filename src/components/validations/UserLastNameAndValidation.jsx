@@ -20,7 +20,7 @@ export default function UserLastNameAndValidation({aboutUser, aboutUserLastName,
             setAboutUser({
               ...aboutUser ,
               aboutUserLastName : {
-                userLastName : formattedName,
+                value : formattedName,
                 valid: true
               }
           })
@@ -28,7 +28,7 @@ export default function UserLastNameAndValidation({aboutUser, aboutUserLastName,
             setAboutUser({
                 ...aboutUser ,
                 aboutUserLastName : {
-                  userLastName : formattedName,
+                  value : formattedName,
                   valid: false
                 }
             })

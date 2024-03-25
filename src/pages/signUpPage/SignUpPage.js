@@ -4,6 +4,7 @@ import { auth } from "../../firebase/firebase"
 import { Registraion } from '../../components/registration/Registration';
 import SpringModal from '../../components/modals/Modal';
 import { useNavigate } from "react-router-dom";
+import writeUserData from '../../services/firebaseSet';
 
 export function SignUpPage() {
 
@@ -37,6 +38,8 @@ export function SignUpPage() {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
         if (user) {
+          console.log(aboutUser)
+          await writeUserData(aboutUser)
           await sendEmailVerification(userCredential.user) 
           setModalText("A verification email has been sent to your address. Please check your inbox.")
           setModalTextColor("green")

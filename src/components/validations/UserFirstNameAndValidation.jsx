@@ -20,7 +20,7 @@ const UserFirstNameAndValidation = ({aboutUser, aboutUserFirstName, setAboutUser
         setAboutUser({
           ...aboutUser ,
           aboutUserFirstName : {
-            userFirstName : formattedName,
+            value : formattedName,
             valid: true
           }
       })
@@ -28,7 +28,7 @@ const UserFirstNameAndValidation = ({aboutUser, aboutUserFirstName, setAboutUser
         setAboutUser({
             ...aboutUser ,
             aboutUserFirstName : {
-              userFirstName : formattedName,
+              value : formattedName,
               valid: false
             }
         })
