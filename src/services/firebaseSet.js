@@ -7,6 +7,7 @@ export default async function writeUserData(aboutUser) {
     const userId = uuidv4()
     try{
         await set(ref(db, 'users/' + userId), {
+            userId,
             firstName : aboutUser.aboutUserFirstName.value,
             lastName : aboutUser.aboutUserLastName.value,
             username : aboutUser.aboutUserName.value,
@@ -19,3 +20,5 @@ export default async function writeUserData(aboutUser) {
         throw new Error("")
     }
 }
+
+

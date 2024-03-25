@@ -3,6 +3,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import Login from '../../components/login/Login';
 import { useNavigate } from 'react-router-dom';
 import { auth } from "../../firebase/firebase"
+import readUserData from "../../services/firebaseGet"
 
 export default function LoginPage() {
 
@@ -12,25 +13,25 @@ export default function LoginPage() {
   const [errorText , setErrorText] = React.useState("errorText")
   const navigate  = useNavigate()
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
       if (user.emailVerified) {
-        navigate("/")    
+          const activUser = await readUserData(email);
+          navigate("/");
       } else {
-        setErrorText("You cannot log in because you have not passed verification.")
-        setColor("red")
+          setErrorText("You cannot log in because you have not passed verification.");
+          setColor("red");
       }
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorCode, errorMessage);
-      setErrorText("Please enter valid login and password.")
-      setColor("red")
-    });
+    }catch(error) {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+        setErrorText("Please enter valid login and password.")
+        setColor("red")
+    };
 };
   
 
