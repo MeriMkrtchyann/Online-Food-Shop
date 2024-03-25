@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { auth } from "../../firebase/firebase"
 import readUserData from "../../services/firebaseGet"
 import updateUserData from "../../services/firebaseUpdate"
+import removeUserData from "../../services/firebeseRemove"
 
 export default function LoginPage() {
 
@@ -21,7 +22,8 @@ export default function LoginPage() {
       const user = userCredential.user;
       if (user.emailVerified) {
           const activUser = await readUserData(email);
-          const newData = await updateUserData(activUser)
+          // const newData = await updateUserData(activUser)
+          // const remove = await removeUserData(activUser)
           console.log(activUser)
           navigate("/");
       } else {
