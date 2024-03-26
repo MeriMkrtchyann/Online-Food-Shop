@@ -75,7 +75,7 @@ export default function PassReset({setEmail, email, setPassword, setNewPassword}
               {!modal ?
               <>
                 <Typography sx={{ mt: 3 }}>
-                Please enter your email to search for your account.
+                  Please enter your email to search for your account.
                 </Typography>
                 <Grid item xs={12} style={{ paddingTop: 5 }}>
                   <TextField
@@ -89,10 +89,6 @@ export default function PassReset({setEmail, email, setPassword, setNewPassword}
                     onChange={(value) => setEmail(value.target.value)}
                   />
                 </Grid> 
-              </>
-              :
-                <ChangePasswordModal setPassword={setPassword} setNewPassword={setNewPassword}/>
-              }
                 <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 ,  }}>
                   <Button
                       variant="contained"
@@ -110,6 +106,11 @@ export default function PassReset({setEmail, email, setPassword, setNewPassword}
                     Search
                   </Button>
                 </Box>
+              </>
+              :
+                <ChangePasswordModal setPassword={setPassword} setNewPassword={setNewPassword} censel={censel}/>
+              }
+                
               </Box>
             </Box>
           </Grid>
