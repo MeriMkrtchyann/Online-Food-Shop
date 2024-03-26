@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
 import FormHelperText from '@mui/material/FormHelperText';
 
-export default function UserEmailAndValidation({aboutUser, aboutUserEmail , setAboutUser }){
+export default function UserEmailAndValidation({aboutUser = {} , setAboutUser }){
 
     const [email, setEmail] = React.useState('');
     let emailValidationRegex = ( /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
@@ -20,7 +20,7 @@ export default function UserEmailAndValidation({aboutUser, aboutUserEmail , setA
                 valid : false,
               }
           })
-          } else {
+        } else {
             setAboutUser({
                 ...aboutUser ,
                 aboutUserEmail: {
@@ -28,7 +28,7 @@ export default function UserEmailAndValidation({aboutUser, aboutUserEmail , setA
                     valid : true,
                 }
             })
-          }
+        }
     }
 
     return (

@@ -10,8 +10,8 @@ export default async function readUserData(email) {
             console.log("data" , data)
             for(let userId in data){
                 if(data[userId].email === email){
-                    // return {[userId] : data[userId]}
-                    return userId
+                    return {[userId] : data[userId]}
+                    // return userId
                 }
             }
         } else {
