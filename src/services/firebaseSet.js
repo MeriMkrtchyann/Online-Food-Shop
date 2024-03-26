@@ -15,6 +15,7 @@ export default async function writeUserData(aboutUser) {
             conatct : aboutUser.aboutUserPhome.value,
             addres : aboutUser.aboutUserAddres.value,
             password : sha256(aboutUser.aboutUserPassword.value),
+            role : "user",
             isActiv : true,
         });
     }catch(e){
