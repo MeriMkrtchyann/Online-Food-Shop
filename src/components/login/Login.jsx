@@ -1,3 +1,4 @@
+import {useState} from "react"
 import {GoHomeIcon} from '../../components/icons/Icons';
 import {Link} from "react-router-dom"
 import Button from '@mui/material/Button';
@@ -12,11 +13,22 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import FormHelperText from '@mui/material/FormHelperText';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import InputAdornment from '@mui/material/InputAdornment';
+import IconButton from '@mui/material/IconButton';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+
 import "./LoginPage.css"
 
 const defaultTheme = createTheme();
 
 export default function Login({handleSubmit, setEmail, setPassword, color, errorText}) {
+  const [showPassword, setShowPassword] = useState(false)
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+};
+
     return(
         <ThemeProvider theme={defaultTheme}>
         <Grid container component="main" className="loginPage" 
@@ -64,7 +76,7 @@ export default function Login({handleSubmit, setEmail, setPassword, color, error
                   id="email"
                   label="Email Address"
                   name="email"
-                  autoComplete="email"
+                  autoComplete="off"
                   autoFocus
                   onChange={(value) => setEmail(value.target.value)}
                 />
@@ -74,10 +86,24 @@ export default function Login({handleSubmit, setEmail, setPassword, color, error
                   fullWidth
                   name="password"
                   label="Password"
-                  type="password"
+                  type={showPassword ? 'text' : 'password'}
                   id="password"
                   autoComplete="current-password"
                   onChange={(value) => setPassword(value.target.value)}
+                  InputProps={{
+                  endAdornment: (
+                  <InputAdornment position="end">
+                      <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={togglePasswordVisibility}
+                      edge="end"
+                      style={{marginRight: 2}}
+                      >
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                  </InputAdornment>
+                  ),
+                  }}
                 />
                 <FormControlLabel
                   control={<Checkbox value="remember" color="primary" />}
