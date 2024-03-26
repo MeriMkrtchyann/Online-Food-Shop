@@ -9,20 +9,18 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useNavigate } from "react-router-dom";
+import passReset from "../../services/firebasePassReset";
 
 const defaultTheme = createTheme();
 
-export default function PassReset({setEmail, handleSubmit}) {
-  
-    const [showPassword, setShowPassword] = useState(false)
+export default function PassReset({setEmail, email}) {
 
-    const togglePasswordVisibility = () => {
-        setShowPassword(!showPassword);
-    };
+    const navigate = useNavigate()
 
     return(
         <ThemeProvider theme={defaultTheme}>
-        <Grid container component="main" className="loginPage" 
+        <Grid container component="main" className="findPage" 
           style={{
             backgroundImage: `url(${process.env.PUBLIC_URL}/img/loginPageBackgraund.webp)`,
             backgroundSize: "cover",
@@ -38,7 +36,7 @@ export default function PassReset({setEmail, handleSubmit}) {
           }}
           >
           <CssBaseline />
-          <Grid item xs={12} sm={9} md={5} component={Paper} elevation={6} square 
+          <Grid item sm={9} md={5} component={Paper} elevation={6} square 
             style={{
                 background: "white",
                 borderRadius: "15px",
@@ -47,7 +45,7 @@ export default function PassReset({setEmail, handleSubmit}) {
             <Box
               sx={{
                 my: 8,
-                mx: 10,
+                mx: 8,
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
@@ -59,28 +57,41 @@ export default function PassReset({setEmail, handleSubmit}) {
               <Typography component="h1" variant="h5">
                 Find your account
               </Typography>
+              <Box component="form" sx={{ mt: 1 }}>
               <Typography sx={{ mt: 3 }}>
                 Please enter your email to search for your account.
               </Typography>
-              <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+              <Grid item xs={12} style={{ paddingTop: 5 }}>
                 <TextField
                   required
-                  fullWidth
                   id="email"
                   label="Email Address"
                   name="email"
                   autoComplete="off"
                   autoFocus
+                  fullWidth
                   onChange={(value) => setEmail(value.target.value)}
                 />
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="contained"
-                  sx={{ mt: 3, mb: 2 }}
-                >
-                  Sign In
-                </Button>
+              </Grid>
+                <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 ,  }}>
+                  <Button
+                      variant="contained"
+                      fullWidth
+                      sx={{ mr: 1 }}
+                      onClick={() => navigate("/signIn") }
+                    >
+                      Cancel
+                  </Button>
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    fullWidth
+                    onClick={passReset(email)}
+                  >
+                    Search
+                  </Button>
+                 
+                </Box>
               </Box>
             </Box>
           </Grid>

@@ -1,11 +1,11 @@
 import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 
-export default async function passReset(aboutUser) {
+export default async function passReset(email) {
     
     const auth = getAuth();
-    const emailAddress = 'user@example.com';
+    console.log(email)
 
-    sendPasswordResetEmail(auth, emailAddress)
+    sendPasswordResetEmail(auth, email)
     .then(() => {
         console.log('Password reset email sent!');
     })

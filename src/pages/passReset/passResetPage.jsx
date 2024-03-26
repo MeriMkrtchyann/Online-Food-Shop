@@ -10,6 +10,6 @@ export default function PassResetPage() {
 };
 
   return (
-    <PassReset setEmail={setEmail} handleSubmit={handleSubmit}/>
+    <PassReset setEmail={setEmail} email={email} handleSubmit={handleSubmit}/>
   );
 }
