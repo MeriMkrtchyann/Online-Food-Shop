@@ -38,7 +38,7 @@ export default function PassReset({setEmail, handleSubmit}) {
           }}
           >
           <CssBaseline />
-          <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square 
+          <Grid item xs={12} sm={9} md={5} component={Paper} elevation={6} square 
             style={{
                 background: "white",
                 borderRadius: "15px",
@@ -47,7 +47,7 @@ export default function PassReset({setEmail, handleSubmit}) {
             <Box
               sx={{
                 my: 8,
-                mx: 8,
+                mx: 10,
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
@@ -57,11 +57,13 @@ export default function PassReset({setEmail, handleSubmit}) {
               <GoHomeIcon color="white" />
             </Link> 
               <Typography component="h1" variant="h5">
-                Sign in
+                Find your account
+              </Typography>
+              <Typography sx={{ mt: 3 }}>
+                Please enter your email to search for your account.
               </Typography>
               <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
                 <TextField
-                  margin="normal"
                   required
                   fullWidth
                   id="email"
@@ -75,7 +77,7 @@ export default function PassReset({setEmail, handleSubmit}) {
                   type="submit"
                   fullWidth
                   variant="contained"
-                  // sx={{ mt: 3, mb: 2 }}
+                  sx={{ mt: 3, mb: 2 }}
                 >
                   Sign In
                 </Button>

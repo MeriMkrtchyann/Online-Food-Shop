@@ -118,8 +118,6 @@ export default function Login({handleSubmit, setEmail, setPassword, color, error
                 >
                   Sign In
                 </Button>
-               
-               
                 <Grid container spacing={2} alignItems="center" justify="center" className="muiLink">
                   <Grid item xs>
                     <MuiLink variant="body2" component={Link} to="/forgetPassword" >
