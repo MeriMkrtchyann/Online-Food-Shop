@@ -7,7 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
-export default function UserPasswordValidation({ aboutUser={}, setAboutUser=(()=>{}), setNewPassword=(()=> {}) }){
+export default function UserPasswordValidation({ aboutUser={}, setAboutUser=(() => {}), setNewPassword}){
 
     const [password , setPassword] = React.useState("")
     const [showPassword, setShowPassword] = React.useState(false)
@@ -18,7 +18,9 @@ export default function UserPasswordValidation({ aboutUser={}, setAboutUser=(()=
             const passwordValidationRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[\w@$!%*?&.\\]{8,}$/;
             let isPasswordInvalid =  !password.match(passwordValidationRegex)
             setPassword(password)
-            setNewPassword(password)
+            if (setNewPassword && !isPasswordInvalid){
+                setNewPassword(password)
+            }
             if (!password.length){
                 setIsPasswordInvalid(false)
             }else if ( isPasswordInvalid ) {

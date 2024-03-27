@@ -15,7 +15,10 @@ export default async function passResetAuthen(aboutUser, password, newPassword, 
         const oldPass = aboutUser[userId[0]].password;
         console.log(oldPass)
         console.log( sha256(password))
-        if (oldPass === sha256(password)) {
+        const passwordValidationRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[\w@$!%*?&.\\]{8,}$/;
+        let isPasswordInvalid =  newPassword.match(passwordValidationRegex)
+        console.log(isPasswordInvalid)
+        if (oldPass === sha256(password) && isPasswordInvalid ) {
           await updatePassword(user, newPassword);
           await firebaseUpdate(userId[0], {
             password: sha256(newPassword)
@@ -29,7 +32,7 @@ export default async function passResetAuthen(aboutUser, password, newPassword, 
         }
       }else{
         setColor("red")
-        setErrorText("Pleaz enter all data")
+        setErrorText("Pleaz enter correct data")
       }
      
     } catch (error) {
