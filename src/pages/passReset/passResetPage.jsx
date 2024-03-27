@@ -30,6 +30,7 @@ export default function PassResetPage() {
     setAboutUser(user)
     if (user){
       console.log(aboutUser)
+      setColor("white")
       setModal(true)
     }else{
       setErrorText("Plize enter valid email")
