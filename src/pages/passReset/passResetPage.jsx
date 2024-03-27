@@ -8,17 +8,21 @@ export default function PassResetPage() {
   const [aboutUser , setAboutUser] = React.useState(null)
   const [password, setPassword] = React.useState('');
   const [newPassword, setNewPassword] = React.useState('');
+  const [color , setColor] = React.useState("white")
+  const [errorText , setErrorText] = React.useState("")
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try{
-       passResetAuthen(aboutUser , password, newPassword)
+      setColor("white")
+      setErrorText("")
+      await passResetAuthen(aboutUser , password, newPassword, setErrorText, setColor)
     }catch(e){
-      console.log(e.message);
+      console.log(errorText);
     }
   };
 
   return (
-    <PassReset setAboutUser={setAboutUser} setEmail={setEmail} email={email} setPassword={setPassword} setNewPassword={setNewPassword} handleSubmit={handleSubmit} />
+    <PassReset setAboutUser={setAboutUser} setEmail={setEmail} email={email} setPassword={setPassword} setNewPassword={setNewPassword} handleSubmit={handleSubmit} color={color} errorText={errorText}/>
   );
 }

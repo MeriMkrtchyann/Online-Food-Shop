@@ -1,7 +1,7 @@
 import { getAuth, updatePassword } from "firebase/auth";
 import firebaseUpdate from "./firebaseUpdate";
 
-export default async function passResetAuthen(aboutUser, password, newPassword) {
+export default async function passResetAuthen(aboutUser, password, newPassword, setErrorText, setColor) {
   const sha256 = require('js-sha256');
   const auth = getAuth();
   const user = auth.currentUser;
@@ -9,15 +9,27 @@ export default async function passResetAuthen(aboutUser, password, newPassword) 
   if (user) {
     try {
       if (password && newPassword){
-        await updatePassword(user, newPassword);
+        console.log(password)
+        console.log(newPassword)
         const userId = Object.keys(aboutUser);
         const oldPass = aboutUser[userId[0]].password;
+        console.log(oldPass)
+        console.log( sha256(password))
         if (oldPass === sha256(password)) {
+          await updatePassword(user, newPassword);
           await firebaseUpdate(userId[0], {
             password: sha256(newPassword)
           });
+          setColor("green");
+          setErrorText('Password updated successfully in Firebase Auth!')
+          console.log('Password updated successfully in Firebase Auth!');
+        }else {
+          setColor("red")
+          setErrorText("Pleaz enter correct data")
         }
-        console.log('Password updated successfully in Firebase Auth!');
+      }else{
+        setColor("red")
+        setErrorText("Pleaz enter all data")
       }
      
     } catch (error) {

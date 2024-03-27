@@ -2,35 +2,33 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import FormHelperText from '@mui/material/FormHelperText';
 import { useState } from 'react';
+import UserPasswordValidation from '../validations/UserPasswordValidation';
 
-export default function ChangePasswordModal({setPassword, setNewPassword, censel, handleSubmit }){
+export default function ChangePasswordModal({setPassword, setNewPassword, censel, handleSubmit, color, errorText }){
 
     const [showPassword, setShowPassword] = useState(false)
-    const [showNewPassword, setShowNewPassword] = useState(false)
+    // const [showNewPassword, setShowNewPassword] = useState(false)
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
-    const toggleNewPasswordVisibility = () => {
-        setShowNewPassword(!showNewPassword);
-    };
+    // const toggleNewPasswordVisibility = () => {
+    //     setShowNewPassword(!showNewPassword);
+    // };
 
     return (
         <>
-        <Typography sx={{ mt: 3 }}>
-            Please enter your old password.
-        </Typography>
         <Grid item xs={12} style={{ paddingTop: 5 }}>
             <TextField
                 required
                 id="password"
-                label="Password"
+                label="Old Password"
                 name="password"
                 type={showPassword ? 'text' : 'password'}
                 autoComplete="off"
@@ -53,10 +51,7 @@ export default function ChangePasswordModal({setPassword, setNewPassword, censel
              }}
             />
         </Grid>
-        <Typography sx={{ mt: 3 }}>
-            Please enter your new password.
-        </Typography>
-        <Grid item xs={12} style={{ paddingTop: 5 }}>
+        {/* <Grid item xs={12} style={{ paddingTop: 5 }}>
             <TextField
                 required
                 id="newPassword"
@@ -82,7 +77,9 @@ export default function ChangePasswordModal({setPassword, setNewPassword, censel
                 ),
              }}
             />
-        </Grid>
+        </Grid> */}
+        <UserPasswordValidation setNewPassword={setNewPassword}/>
+        <FormHelperText error style={{color : `${color}`}}>{errorText}</FormHelperText>
         <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 ,  }}>
             <Button
                 variant="contained"

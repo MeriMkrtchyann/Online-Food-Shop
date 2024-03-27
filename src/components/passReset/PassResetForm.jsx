@@ -15,7 +15,7 @@ import firebaseGet from "../../services/firebaseGet.js"
 
 const defaultTheme = createTheme();
 
-export default function PassReset({setAboutUser, setEmail, email, setPassword, setNewPassword , handleSubmit}) {
+export default function PassReset({setAboutUser, setEmail, email, setPassword, setNewPassword , handleSubmit, color, errorText}) {
 
     const navigate = useNavigate()
     const [modal , setModal] = useState(false)
@@ -114,7 +114,7 @@ export default function PassReset({setAboutUser, setEmail, email, setPassword, s
                 </Box>
               </>
               :
-                <ChangePasswordModal setPassword={setPassword} setNewPassword={setNewPassword} censel={censel} handleSubmit={handleSubmit}/>
+                <ChangePasswordModal setPassword={setPassword} setNewPassword={setNewPassword} censel={censel} handleSubmit={handleSubmit} color={color} errorText={errorText}/>
               }
               </Box>
             </Box>
