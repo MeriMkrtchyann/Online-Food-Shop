@@ -1,4 +1,4 @@
-import {GoHomeIcon} from '../../components/icons/Icons';
+import {GoHomeIcon} from '../icons/Icons.jsx';
 import {Link} from "react-router-dom"
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -9,21 +9,27 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from "react-router-dom";
-import passReset from "../../services/passReset.js";
 import { useState } from 'react';
 import ChangePasswordModal from '../modals/ChangePasswordModal.jsx';
+import firebaseGet from "../../services/firebaseGet.js"
 
 const defaultTheme = createTheme();
 
-export default function PassReset({setEmail, email, setPassword, setNewPassword}) {
+export default function PassReset({setAboutUser, setEmail, email, setPassword, setNewPassword , handleSubmit}) {
 
     const navigate = useNavigate()
     const [modal , setModal] = useState(false)
 
-    const openModal = () => {
-      const user = passReset(email)
-      if (user){
-        setModal(true)
+    const openModal = async () => {
+      try{
+        const user = await firebaseGet(email)
+        console.log(user)
+        if (user){
+          setAboutUser(user)
+          setModal(true)
+        } 
+      }catch(e){
+        console.log(e.message)
       }
     }
 
@@ -108,9 +114,8 @@ export default function PassReset({setEmail, email, setPassword, setNewPassword}
                 </Box>
               </>
               :
-                <ChangePasswordModal setPassword={setPassword} setNewPassword={setNewPassword} censel={censel}/>
+                <ChangePasswordModal setPassword={setPassword} setNewPassword={setNewPassword} censel={censel} handleSubmit={handleSubmit}/>
               }
-                
               </Box>
             </Box>
           </Grid>

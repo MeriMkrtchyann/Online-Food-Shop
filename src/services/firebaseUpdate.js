@@ -1,14 +1,9 @@
 import { getDatabase, ref, update } from "firebase/database";
 
-export default async function updateUserData(activUser) {
+export default async function updateUserData(activUser, updates={}) {
     
     const db = getDatabase();
     const userRef = ref(db, `users/${activUser}`); 
-
-    const updates = {
-    email: 'newemail@example.com',
-    fullName: 'New Full Name'
-    };
 
     update(userRef, updates)
     .then(() => console.log('Data updated successfully!'))
