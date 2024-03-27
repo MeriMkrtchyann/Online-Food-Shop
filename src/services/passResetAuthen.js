@@ -5,8 +5,8 @@ export default async function passResetAuthen(aboutUser, password, newPassword, 
   const sha256 = require('js-sha256');
   const auth = getAuth();
   const user = auth.currentUser;
-
   if (user) {
+    console.log(user)
     try {
       if (password && newPassword){
         console.log(password)
@@ -36,9 +36,12 @@ export default async function passResetAuthen(aboutUser, password, newPassword, 
       }
      
     } catch (error) {
+      setColor("red")
+      setErrorText("Error updating password")
       console.error('Error updating password in Firebase Auth:', error);
     }
   } else {
-    console.log('No user is signed in.');
+    setColor("red")
+    setErrorText('No user is signed in.')
   }
 }

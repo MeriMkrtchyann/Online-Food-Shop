@@ -12,26 +12,14 @@ import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
 import ChangePasswordModal from '../modals/ChangePasswordModal.jsx';
 import firebaseGet from "../../services/firebaseGet.js"
+import { FormHelperText } from '@mui/material';
 
 const defaultTheme = createTheme();
 
-export default function PassReset({setAboutUser, setEmail, email, setPassword, setNewPassword , handleSubmit, color, errorText}) {
+export default function PassReset({setModal,openModal,modal, setEmail, setPassword, setNewPassword , handleSubmit, color, errorText}) {
 
     const navigate = useNavigate()
-    const [modal , setModal] = useState(false)
-
-    const openModal = async () => {
-      try{
-        const user = await firebaseGet(email)
-        console.log(user)
-        if (user){
-          setAboutUser(user)
-          setModal(true)
-        } 
-      }catch(e){
-        console.log(e.message)
-      }
-    }
+    
 
     const censel = () => {
       setModal(false)
@@ -94,7 +82,8 @@ export default function PassReset({setAboutUser, setEmail, email, setPassword, s
                     fullWidth
                     onChange={(value) => setEmail(value.target.value)}
                   />
-                </Grid> 
+                </Grid>
+                <FormHelperText error style={{color : `${color}`}}>{errorText}</FormHelperText>
                 <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 ,  }}>
                   <Button
                       variant="contained"
@@ -114,7 +103,13 @@ export default function PassReset({setAboutUser, setEmail, email, setPassword, s
                 </Box>
               </>
               :
-                <ChangePasswordModal setPassword={setPassword} setNewPassword={setNewPassword} censel={censel} handleSubmit={handleSubmit} color={color} errorText={errorText}/>
+                <ChangePasswordModal 
+                  setPassword={setPassword} 
+                  setNewPassword={setNewPassword} 
+                  censel={censel} 
+                  handleSubmit={handleSubmit} 
+                  color={color} 
+                  errorText={errorText}/>
               }
               </Box>
             </Box>
